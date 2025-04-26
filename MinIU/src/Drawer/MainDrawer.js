@@ -4,8 +4,31 @@ import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-
-// Import all screen components
+//Main import
+import ArtsAndCultureClub from '../Screen/Club/ArtsAndCultureClubScreen';
+import AcademicAndSkillsClub from '../Screen/Club/AcademicAndSkillsClubScreen';
+import LearningSupportAndPersonalDevClub from '../Screen/Club/LearningSupportAndPersonalDevClubScreen';
+import VolunteerAndSocialWorkClub from '../Screen/Club/VolunteerAndSocialWorkClubScreen';
+import SportsAndEsportsClub from '../Screen/Club/SportsAndEsportsClubScreen';
+//Club import
+import CentralLibrary from '../Screen/Map/CentralLibraryScreen';
+import InternationalUniversity from '../Screen/Map/InternationalUniversityScreen';
+import InstituteforEnvironmentandResources from '../Screen/Map/InstituteforEnvironmentandResourcesScreen';
+//Map import
+import Floor_1A from '../Screen/Map/Campus A/Floor-1';
+import Floor_2A from '../Screen/Map/Campus A/Floor-2';
+import Floor_3A from '../Screen/Map/Campus A/Floor-3';
+import Floor_4A from '../Screen/Map/Campus A/Floor-4';
+import Floor_5A from '../Screen/Map/Campus A/Floor-5';
+import Floor_6A from '../Screen/Map/Campus A/Floor-6';
+import Floor_7A from '../Screen/Map/Campus A/Floor-7';
+//Campus A import
+import Floor_1L from '../Screen/Map/Campus L/Floor-1';
+import Floor_2L from '../Screen/Map/Campus L/Floor-2';
+//Campus L import
+import Floor_4C from '../Screen/Map/Campus C/Floor-4';
+import Floor_5C from '../Screen/Map/Campus C/Floor-5';
+//Campus C import
 import Lecturers from '../Screen/Lecturers';
 import TrainingProgram from '../Screen/TrainingProgram';
 import Form from '../Screen/Form';
@@ -19,7 +42,7 @@ import FeedbackLecturers from '../Screen/FeedbackLecturers';
 import FeedbackUniversity from '../Screen/FeedbackUniversity';
 import AboutMe from '../Screen/AboutMe';
 import Home from '../Screen/Home';
-
+//Drawer import
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 const EmptyScreen = () => null;
@@ -42,7 +65,7 @@ const CustomDrawerContent = (props) => {
     <DrawerContentScrollView {...props} contentContainerStyle={{ flex: 1 }}>
       <TouchableOpacity 
         style={styles.logoContainer}
-        onPress={() => props.navigation.navigate('MinIU')}
+        onPress={() => props.navigation.navigate('MinIU - Home')}
       >
         <Image
           source={require('../../assets/logo.png')} 
@@ -61,10 +84,10 @@ const MainDrawer = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="MainApp">
+        <Stack.Screen name="MainApp - Home">
           {() => (
             <Drawer.Navigator 
-              initialRouteName="MinIU"
+              initialRouteName="MinIU - Home"
               drawerContent={(props) => <CustomDrawerContent {...props} />}
               screenOptions={{
                 drawerStyle: {
@@ -80,7 +103,7 @@ const MainDrawer = () => {
               }}
             > 
               <Drawer.Screen 
-                name="MinIU" 
+                name="MinIU - Home" 
                 component={Home} 
                 options={{ drawerItemStyle: { display: 'none' } }}
               />
@@ -88,10 +111,107 @@ const MainDrawer = () => {
               <Drawer.Screen name="Training program" component={TrainingProgram} options={{ drawerIcon: TrainingProgramIcon }} />
               <Drawer.Screen name="Form" component={Form} options={{ drawerIcon: FormIcon }} />
               <Drawer.Screen name="Club" component={Club} options={{ drawerIcon: ClubIcon }} />
+        <Drawer.Screen 
+          name="Arts and Culture Club" 
+          component={ArtsAndCultureClub} 
+          options={{ drawerItemStyle: { display: 'none' }}} 
+        />
+        <Drawer.Screen 
+          name="Academic and Skills Club" 
+          component={AcademicAndSkillsClub} 
+          options={{ drawerItemStyle: { display: 'none' }}} 
+        />
+        <Drawer.Screen 
+          name="Learning Support and Personal Dev Club" 
+          component={LearningSupportAndPersonalDevClub} 
+          options={{ drawerItemStyle: { display: 'none' }}} 
+        />
+        <Drawer.Screen 
+          name="Volunteer and Social Work Club" 
+          component={VolunteerAndSocialWorkClub} 
+          options={{ drawerItemStyle: { display: 'none' }}} 
+        />
+        <Drawer.Screen 
+          name="Sports and Esports Club" 
+          component={SportsAndEsportsClub} 
+          options={{ drawerItemStyle: { display: 'none' }}} 
+        />
               <Drawer.Screen name="Campus Map" component={CampusMap} options={{ drawerIcon: CampusMapIcon }} />
               <Drawer.Screen name="Divisions and Centers" component={DivisionsAndCenters} options={{ drawerIcon: DivisionsAndCentersIcon }} />
               <Drawer.Screen name="Support" component={Support} options={{ drawerIcon: SupportIcon }} />
               <Drawer.Screen name="Useful Information" component={UsefulInformation} options={{ drawerIcon: UsefulInformationIcon }} />
+         <Drawer.Screen 
+          name="International University - Campus A" 
+          component={InternationalUniversity} 
+          options={{ drawerItemStyle: { display: 'none' }}} 
+        />
+
+          <Drawer.Screen 
+          name="Floor 1 - Campus A" 
+          component={Floor_1A} 
+          options={{ drawerItemStyle: { display: 'none' }}} 
+          />
+          <Drawer.Screen
+          name="Floor 2 - Campus A"
+          component={Floor_2A}
+          options={{ drawerItemStyle: { display: 'none' }}}
+          />
+          <Drawer.Screen
+          name="Floor 3 - Campus A"
+          component={Floor_3A}
+          options={{ drawerItemStyle: { display: 'none' }}}
+          />
+          <Drawer.Screen
+          name="Floor 4 - Campus A"
+          component={Floor_4A}
+          options={{ drawerItemStyle: { display: 'none' }}}
+          />
+          <Drawer.Screen
+          name="Floor 5 - Campus A"
+          component={Floor_5A}
+          options={{ drawerItemStyle: { display: 'none' }}}
+          />
+          <Drawer.Screen
+          name="Floor 6 - Campus A"
+          component={Floor_6A}
+          options={{ drawerItemStyle: { display: 'none' }}}
+          />
+          <Drawer.Screen
+          name="Floor 7 - Campus A"
+          component={Floor_7A}
+          options={{ drawerItemStyle: { display: 'none' }}}
+          />
+
+        <Drawer.Screen
+          name="Central Library - Campus L"
+          component={CentralLibrary}
+          options={{ drawerItemStyle: { display: 'none' }}}
+          />
+          <Drawer.Screen 
+          name="Floor 1 - Campus L" 
+          component={Floor_1L} 
+          options={{ drawerItemStyle: { display: 'none' }}} 
+          />
+          <Drawer.Screen
+          name="Floor 2 - Campus L"
+          component={Floor_2L}
+          options={{ drawerItemStyle: { display: 'none' }}}
+          />
+        <Drawer.Screen
+          name="Institute for Environment and Resources Campus C"
+          component={InstituteforEnvironmentandResources}
+          options={{ drawerItemStyle: { display: 'none' }}}
+        />
+          <Drawer.Screen
+          name="Floor 4 - Campus C"
+          component={Floor_4C}
+          options={{ drawerItemStyle: { display: 'none' }}}
+          />
+          <Drawer.Screen
+          name="Floor 5 - Campus C"
+          component={Floor_5C}
+          options={{ drawerItemStyle: { display: 'none' }}}
+          />      
               <Drawer.Screen 
                 name="Divider" 
                 component={EmptyScreen} 

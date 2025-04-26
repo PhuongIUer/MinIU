@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 const FeedbackRatingApp = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.screen}>
       <Text>FeedbackRatingApp Screen</Text>
