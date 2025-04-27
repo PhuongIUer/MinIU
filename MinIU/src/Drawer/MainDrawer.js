@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, Text, TouchableOpacity, Linking } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -43,6 +43,8 @@ import FeedbackUniversity from '../Screen/FeedbackUniversity';
 import AboutMe from '../Screen/AboutMe';
 import Home from '../Screen/Home';
 //Drawer import
+import ThongNhat from '../../assets/50nam.png'
+
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 const EmptyScreen = () => null;
@@ -79,7 +81,11 @@ const CustomDrawerContent = (props) => {
     </DrawerContentScrollView>
   );
 };
-
+const URLFeedback = [
+  {name: "FeedbackLecturers", url: "https://forms.gle/5gGwkhwW1ZgEuhUf7"},
+  {name: "FeedbackRatingApp", url: "https://forms.gle/oK7wNbSc5buTzcjX9"},
+  {name: "FeedbackUniversity", url: "https://forms.gle/RmVoFifP2NSJBvtd6"},
+]
 const MainDrawer = () => {
   return (
     <NavigationContainer>

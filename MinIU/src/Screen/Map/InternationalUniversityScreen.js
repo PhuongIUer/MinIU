@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const InternationalUniversity = () => {
   const navigation = useNavigation();
@@ -25,6 +26,7 @@ const InternationalUniversity = () => {
                 onPress={() => navigation.navigate(club.screen)}
               >
                 <Text style={styles.buttonText}>{club.name}</Text>
+                <MaterialIcons name="chevron-right" size={24} color="#6c757d" />
               </TouchableOpacity>
             ))}
           <TouchableOpacity 
@@ -64,15 +66,23 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   button: {
-    backgroundColor: '#3498db',
-    padding: 15,
+    backgroundColor: 'white',
+    padding: 16,
+    width: 300,
+    marginHorizontal: 16,
+    marginVertical: 4,
     borderRadius: 8,
-    marginVertical: 10,
-    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
   },
   buttonText: {
-    color: 'white',
+    color: 'black',
     fontSize: 16,
     fontWeight: 'bold',
   },
