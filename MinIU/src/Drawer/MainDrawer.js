@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 //Main import
+import CardScreen from '../Screen/Club/CardScreen'
 import ArtsAndCultureClub from '../Screen/Club/ArtsAndCultureClubScreen';
 import AcademicAndSkillsClub from '../Screen/Club/AcademicAndSkillsClubScreen';
 import LearningSupportAndPersonalDevClub from '../Screen/Club/LearningSupportAndPersonalDevClubScreen';
@@ -118,6 +119,11 @@ const MainDrawer = () => {
               <Drawer.Screen name="Form" component={Form} options={{ drawerIcon: FormIcon }} />
               <Drawer.Screen name="Club" component={Club} options={{ drawerIcon: ClubIcon }} />
         <Drawer.Screen 
+          name="Card Screen" 
+          component={CardScreen} 
+          options={{ drawerItemStyle: { display: 'none' }}} 
+        />
+        <Drawer.Screen 
           name="Arts and Culture Club" 
           component={ArtsAndCultureClub} 
           options={{ drawerItemStyle: { display: 'none' }}} 
@@ -129,9 +135,10 @@ const MainDrawer = () => {
         />
         <Drawer.Screen 
           name="Learning Support and Personal Dev Club" 
-          component={LearningSupportAndPersonalDevClub} 
           options={{ drawerItemStyle: { display: 'none' }}} 
-        />
+        >
+        {props => <LearningSupportAndPersonalDevClub {...props} myParam="Hello from drawer!" />}
+        </Drawer.Screen>  
         <Drawer.Screen 
           name="Volunteer and Social Work Club" 
           component={VolunteerAndSocialWorkClub} 

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Linking, Alert, TouchableOpacity } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 
 const FeedbackRatingApp = () => {
   const url = `https://forms.gle/oK7wNbSc5buTzcjX9`;

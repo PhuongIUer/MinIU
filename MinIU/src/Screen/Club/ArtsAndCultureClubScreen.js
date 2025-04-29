@@ -24,19 +24,9 @@ const ArtsAndCultureClub = () => {
     { source: IGC, name: 'IGC', url: 'fb.com/iuguitarclub.since2010' },
     { source: IL, name: 'IL', url: 'fb.com/@IU.LUMB/' },        
   ];
-
-  const handlePress = async (url) => {
-    try {
-      const supported = await Linking.canOpenURL(url);
-      if (supported) {
-        await Linking.openURL(url);
-      } else {
-        const webUrl = url.replace('fb.com/', 'https://www.facebook.com/');
-        await Linking.openURL(webUrl);
-      }
-    } catch (error) {
-      console.error('An error occurred', error);
-    }
+  const navBack = 'Arts and Culture Club'
+  const handlePress = async (name,source,url) => {
+    navigation.navigate('Card Screen', {name: name,source: source,url: url,navBack: navBack})
   };
 
   return (
@@ -46,7 +36,7 @@ const ArtsAndCultureClub = () => {
         <TouchableOpacity 
           key={index} 
           style={styles.imageContainer}
-          onPress={() => handlePress(club.url)}
+          onPress={() => handlePress(club.name,club.source,club.url,navBack)}
           activeOpacity={0.7}
         >
           <Image 

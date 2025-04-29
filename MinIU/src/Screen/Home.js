@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Animated, TextInput, TouchableOpacity, Alert, Linking } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useRoute } from '@react-navigation/native';
 
 const Home = () => {
   const footerPosition = React.useRef(new Animated.Value(200)).current;
   const [studentId, setStudentId] = useState('');
   const [decodedInfo, setDecodedInfo] = useState(null);
+  const route = useRoute();
+  const { helo } = route.helo || {};
 
   React.useEffect(() => {
     Animated.timing(footerPosition, {

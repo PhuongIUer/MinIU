@@ -20,19 +20,9 @@ const VolunteerAndSocialWorkClub = () => {
     { source: COSS, name: 'COSS', url: 'fb.com/IU.COSS' },
     { source: II, name: 'II', url: 'fb.com/inspirit.iuclub' },
   ];
-
-  const handlePress = async (url) => {
-    try {
-      const supported = await Linking.canOpenURL(url);
-      if (supported) {
-        await Linking.openURL(url);
-      } else {
-        const webUrl = url.replace('fb.com/', 'https://www.facebook.com/');
-        await Linking.openURL(webUrl);
-      }
-    } catch (error) {
-      console.error('An error occurred', error);
-    }
+  const navBack = 'Volunteer and Social Work Club'
+  const handlePress = async (name,source,url) => {
+    navigation.navigate('Card Screen', {name: name,source: source,url: url,navBack: navBack})
   };
 
   return (
@@ -42,7 +32,7 @@ const VolunteerAndSocialWorkClub = () => {
         <TouchableOpacity 
           key={index} 
           style={styles.imageContainer}
-          onPress={() => handlePress(club.url)}
+          onPress={() => handlePress(club.name,club.source,club.url,navBack)}
           activeOpacity={0.7}
         >
           <Image 

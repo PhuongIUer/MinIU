@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Image, ScrollView, TouchableOpacity, Linking } from 'react-native';
+import { View, StyleSheet, Image, ScrollView, TouchableOpacity, Linking} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -13,6 +13,7 @@ import Tedx from '../../../assets/Club/LearningSupportAndPersonalDevClub/Tedx.pn
 import uHub from '../../../assets/Club/LearningSupportAndPersonalDevClub/uHub.png';
 
 const LearningSupportAndPersonalDevClub = () => {
+  
   const navigation = useNavigation();
   const clubImages = [
     { source: GDG, name: 'GDG', url: 'fb.com/gdgoc.hcmiu' },    
@@ -24,21 +25,10 @@ const LearningSupportAndPersonalDevClub = () => {
     { source: Tedx, name: 'Tedx', url: 'fb.com/tedxhcmiu' },
     { source: uHub, name: 'uHub', url: 'fb.com/UHubNetwork' },
   ];
-
-  const handlePress = async (url) => {
-    try {
-      const supported = await Linking.canOpenURL(url);
-      if (supported) {
-        await Linking.openURL(url);
-      } else {
-        const webUrl = url.replace('fb.com/', 'https://www.facebook.com/');
-        await Linking.openURL(webUrl);
-      }
-    } catch (error) {
-      console.error('An error occurred', error);
-    }
+  const navBack = 'Learning Support and Personal Dev Club'
+  const handlePress = async (name,source,url) => {
+    navigation.navigate('Card Screen', {name: name,source: source,url: url,navBack: navBack})
   };
-
   return (
     <View style={styles.container}>
     <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -46,7 +36,7 @@ const LearningSupportAndPersonalDevClub = () => {
         <TouchableOpacity 
           key={index} 
           style={styles.imageContainer}
-          onPress={() => handlePress(club.url)}
+          onPress={() => handlePress(club.name,club.source,club.url,navBack)}
           activeOpacity={0.7}
         >
           <Image 
