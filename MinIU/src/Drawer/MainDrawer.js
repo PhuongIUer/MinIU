@@ -82,11 +82,6 @@ const CustomDrawerContent = (props) => {
     </DrawerContentScrollView>
   );
 };
-const URLFeedback = [
-  {name: "FeedbackLecturers", url: "https://forms.gle/5gGwkhwW1ZgEuhUf7"},
-  {name: "FeedbackRatingApp", url: "https://forms.gle/oK7wNbSc5buTzcjX9"},
-  {name: "FeedbackUniversity", url: "https://forms.gle/RmVoFifP2NSJBvtd6"},
-]
 const MainDrawer = () => {
   return (
     <NavigationContainer>

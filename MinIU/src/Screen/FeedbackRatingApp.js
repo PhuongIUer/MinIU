@@ -2,26 +2,41 @@ import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Linking, Alert, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
+const showURLConfirmation = (url) => {
+  Alert.alert(
+    "Confirmation",
+    "Do you want to rate MinIU ?",
+    [
+      {
+        text: "Cancel",
+        style: "cancel"
+      },
+      { 
+        text: "Agree", 
+        onPress: () => goURL(url) 
+      }
+    ]
+  );
+};
+const goURL = async (url) =>{
+  Linking.openURL(url).catch(err => {
+    Alert.alert('Error', 'Failed to open the link');
+    console.error('Failed to open URL:', err);
+  });
+};
 const FeedbackRatingApp = () => {
   const url = `https://forms.gle/oK7wNbSc5buTzcjX9`;
 
   useEffect(() => {
-    openLink(); // Automatically open the link when the screen loads
+    showURLConfirmation(url); // Automatically open the link when the screen loads
   }, []);
-
-  const openLink = () => {
-    Linking.openURL(url).catch(err => {
-      Alert.alert('Error', 'Failed to open the link');
-      console.error('Failed to open URL:', err);
-    });
-  };
 
   return (
     <View style={styles.screen}>
       <Text style={styles.text}>Redirecting to feedback form...</Text>
       <Text style={styles.hint}>If you are not redirected automatically, tap the button below:</Text>
       
-      <TouchableOpacity style={styles.button} onPress={openLink}>
+      <TouchableOpacity style={styles.button} onPress={() => showURLConfirmation(url)}>
         <Text style={styles.buttonText}>Open Feedback Form</Text>
       </TouchableOpacity>
     </View>

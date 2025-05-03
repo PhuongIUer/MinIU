@@ -1,11 +1,32 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Linking, Alert, TouchableOpacity } from 'react-native';
-
+const showURLConfirmation = (url) => {
+  Alert.alert(
+    "Confirmation",
+    "Do you want to feedback about IU ?",
+    [
+      {
+        text: "Cancel",
+        style: "cancel"
+      },
+      { 
+        text: "Agree", 
+        onPress: () => goURL(url) 
+      }
+    ]
+  );
+};
+const goURL = async (url) =>{
+  Linking.openURL(url).catch(err => {
+    Alert.alert('Error', 'Failed to open the link');
+    console.error('Failed to open URL:', err);
+  });
+};
 const FeedbackUniversity = () => {
   const url = `https://forms.gle/RmVoFifP2NSJBvtd6`;
 
   useEffect(() => {
-    openLink(); // Automatically open the link when the screen loads
+    showURLConfirmation(url); // Automatically open the link when the screen loads
   }, []);
 
   const openLink = () => {
@@ -20,7 +41,7 @@ const FeedbackUniversity = () => {
       <Text style={styles.text}>Redirecting to feedback form...</Text>
       <Text style={styles.hint}>If you are not redirected automatically, tap the button below:</Text>
       
-      <TouchableOpacity style={styles.button} onPress={openLink}>
+      <TouchableOpacity style={styles.button} onPress={() => showURLConfirmation(url)}>
         <Text style={styles.buttonText}>Open Feedback Form</Text>
       </TouchableOpacity>
     </View>
