@@ -36,7 +36,7 @@ const goURL = async (url) => {
   }
 };
 const CardScreen = ({ route }) => {
-    const {name, source, url, navBack} = route.params;
+  const {name, source, url, navBack} = route.params;
   const navigation = useNavigation();
   
   const scale = useSharedValue(1);

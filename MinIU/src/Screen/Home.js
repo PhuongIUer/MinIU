@@ -29,7 +29,7 @@ const Home = () => {
     'IT': { name: 'Information Technology' },
     'MA': { name: 'Mathematics' },
     'SE': { name: 'Space Engineering' },
-    'CS': { name: 'Computer Science' },
+    'BA': { name: 'School of Business' },
   };
   const majorData = {
     'AC': { name: 'Accounting' },
@@ -52,7 +52,6 @@ const Home = () => {
     'IT': { name: 'Information Technology' },
     'MA': { name: 'Applied Mathematics' },
     'SE': { name: 'Space Engineering' },
-    'IU': { name: 'International University Program' },
   };
   const programData = {
     'AU': { name: 'Australia Program' },
