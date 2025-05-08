@@ -1,25 +1,51 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Alert, Linking } from 'react-native';
 
 const LecturerCard = ({ name, position, email, office, imageUrl }) => {
+  const handleContact = () => {
+    Alert.alert(
+      'Contact Lecturer',
+      `Do you want to contact ${name}?`,
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Yes',
+          onPress: () => {
+            if (email) {
+              Linking.openURL(`mailto:${email}`);
+            } else {
+              Alert.alert('Error', 'No email address available for this lecturer');
+            }
+          },
+        },
+      ],
+      { cancelable: true }
+    );
+  };
+
   return (
-    <View style={styles.card}>
-      <View style={styles.imageContainer}>
-        {imageUrl ? (
-          <Image source={{ uri: imageUrl }} style={styles.image} />
-        ) : (
-          <View style={styles.placeholderImage}>
-            <Text style={styles.placeholderText}>Photo</Text>
-          </View>
-        )}
+    <TouchableOpacity onPress={handleContact} activeOpacity={0.7}>
+      <View style={styles.card}>
+        <View style={styles.imageContainer}>
+          {imageUrl ? (
+            <Image source={{ uri: imageUrl }} style={styles.image} />
+          ) : (
+            <View style={styles.placeholderImage}>
+              <Text style={styles.placeholderText}>Photo</Text>
+            </View>
+          )}
+        </View>
+        <View style={styles.infoContainer}>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.position}>{position}</Text>
+          <Text style={styles.detail}>Email: {email}</Text>
+          <Text style={styles.detail}>Office: {office}</Text>
+        </View>
       </View>
-      <View style={styles.infoContainer}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.position}>{position}</Text>
-        <Text style={styles.detail}>Email: {email}</Text>
-        <Text style={styles.detail}>Office: {office}</Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

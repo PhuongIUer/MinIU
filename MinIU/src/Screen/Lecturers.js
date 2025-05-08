@@ -1345,7 +1345,7 @@ const Lecturers = () => {
       position: 'Vice Dean of School of Biotechnology',
       email: 'nmthanh@hcmiu.edu.vn',
       office: 'Room O1-708',
-      imageUrl: 'ttps://bt.hcmiu.edu.vn/ftp_images/ua_10072023103432724.jpg',
+      imageUrl: 'https://bt.hcmiu.edu.vn/ftp_images/ua_10072023103432724.jpg',
     },
     {
       name: 'Assoc. Prof. Minh V Tran',
@@ -1802,6 +1802,7 @@ const Lecturers = () => {
 
 const styles = StyleSheet.create({
   screen: {
+    paddingTop: 20,
     flex: 1,
     backgroundColor: '#f8f9fa',
   },
