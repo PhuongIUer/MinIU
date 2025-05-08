@@ -31,7 +31,7 @@ import Floor_4C from '../Screen/Map/Campus C/Floor-4';
 import Floor_5C from '../Screen/Map/Campus C/Floor-5';
 //Campus C import
 import Lecturers from '../Screen/Lecturers';
-import LecturerHolder from '../Screen/Lecturers/LecturerHolder';
+import LecturerTable from '../Screen/Lecturers/LecturerTable';
 
 import TrainingProgram from '../Screen/TrainingProgram';
 import Form from '../Screen/Form';
@@ -113,8 +113,8 @@ const MainDrawer = () => {
               />
               <Drawer.Screen name="Lecturers" component={Lecturers} options={{ drawerIcon: LecturersIcon }} />
         <Drawer.Screen 
-          name="Lecturer Holder" 
-          component={LecturerHolder} 
+          name="Lecturer Table" 
+          component={LecturerTable} 
           options={{ drawerItemStyle: { display: 'none' }}} 
         />
               <Drawer.Screen name="Training program" component={TrainingProgram} options={{ drawerIcon: TrainingProgramIcon }} />

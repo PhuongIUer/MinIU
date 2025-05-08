@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import LecturerCard from '../Lecturers/LecturerCard';
+import LecturerCard from './LecturerCard';
 import { Ionicons } from '@expo/vector-icons';
 
-const LecturerHolder = ({ route }) => {
+const LecturerTable = ({ route }) => {
   const navigation = useNavigation();
   const { lecturers, majorName } = route.params;
   const scrollViewRef = useRef(null);
@@ -29,7 +29,6 @@ const LecturerHolder = ({ route }) => {
   };
 
   const handleBackPress = () => {
-    scrollToTop();
     navigation.navigate('Lecturers');
   };
 
@@ -78,7 +77,7 @@ const LecturerHolder = ({ route }) => {
   };
 
   const pageNumbers = getPageNumbers();
-
+  scrollToTop();
   return (
     <View style={styles.screen}>
       <TouchableOpacity 
@@ -239,4 +238,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LecturerHolder;
+export default LecturerTable;

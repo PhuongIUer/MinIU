@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity, Image, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
-import LecturerHolder from './Lecturers/LecturerHolder';
+import LecturerTable from './Lecturers/LecturerTable';
 
 const Lecturers = () => {
   const navigation = useNavigation();
@@ -1007,14 +1007,14 @@ const Lecturers = () => {
   const LecturersofCH = [
     {
       name: 'Assoc. Prof. Huỳnh Kim Lâm',
-      position: 'Dean of Chemical Engineering',
+      position: 'Dean of Chemical & Environmental Engineering',
       email: 'hklam@hcmiu.edu.vn',
       office: 'Room LA.712',
       imageUrl: 'https://cee.hcmiu.edu.vn/wp-content/uploads/2022/11/IMG_5887_5x5_a-270x270.jpg',
     },
     {
       name: 'Dr. Nguyễn Thị Thuỷ',
-      position: 'Vice Dean of Chemical Engineering',
+      position: 'Vice Dean of Chemical & Environmental Engineering',
       email: 'ntthuy@hcmiu.edu.vn',
       office: 'Room LA1-712',
       imageUrl: 'https://cee.hcmiu.edu.vn/wp-content/uploads/2022/12/co-Thuy.jpg',
@@ -1235,14 +1235,14 @@ const Lecturers = () => {
   const LecturersofCE = [
     {
       name: 'Dr. Phạm Nguyễn Linh Khánh',
-      position: 'Dean of Civil Engineering Department',
+      position: 'Dean of Civil Engineering and Management Department',
       email: 'pnlkhanh@hcmiu.edu.vn',
       office: 'Room O1-506',
       imageUrl: 'https://cem.hcmiu.edu.vn/wp-content/uploads/2023/03/Khanh-526x526.jpg',
     },
     {
       name: 'Pro. Dr. Lê Văn Cảnh',
-      position: 'Vice Dean of Civil Engineering Department',
+      position: 'Vice Dean of Civil Engineering and Management Department',
       email: 'lvcanh@hcmiu.edu.vn',
       office: 'Room O1-506',
       imageUrl: 'https://cem.hcmiu.edu.vn/wp-content/uploads/2023/03/sep-Canh-526x526.jpg',
@@ -1328,21 +1328,21 @@ const Lecturers = () => {
   const LecturersofBT = [
     {
       name: ' Assoc. Prof. Thuan V Nguyen',
-      position: 'Dean of School of Biotechnology',
+      position: 'Dean of Biotechnology',
       email: 'nvthuan@hcmiu.edu.vn',
       office: 'Room A1-713',
       imageUrl: 'https://bt.hcmiu.edu.vn/ftp_images/ua_13072023104117116.jpg',
     },
     {
       name: 'Assoc. Prof. Tu HK Nguyen',
-      position: 'Vice Dean of School of Biotechnology, Lecturer',
+      position: 'Vice Dean of Biotechnology, Lecturer',
       email: 'nhktu@hcmiu.edu.vn',
       office: 'Room O1-708',
       imageUrl: 'https://bt.hcmiu.edu.vn/ftp_images/ua_03042023015546840.jpeg',
     },
     {
       name: 'Dr. Thanh M Nguyen',
-      position: 'Vice Dean of School of Biotechnology',
+      position: 'Vice Dean of Biotechnology',
       email: 'nmthanh@hcmiu.edu.vn',
       office: 'Room O1-708',
       imageUrl: 'https://bt.hcmiu.edu.vn/ftp_images/ua_10072023103432724.jpg',
@@ -1699,7 +1699,7 @@ const Lecturers = () => {
     },
     {
       name: 'Dr. Thanh M Nguyen',
-      position: 'Vice Dean of School of Biotechnology',
+      position: 'Vice Dean of Biotechnology',
       email: 'nmthanh@hcmiu.edu.vn',
       office: 'Room A1-708',
       imageUrl: 'https://bt.hcmiu.edu.vn/ftp_images/ua_10072023103432724.jpg',
@@ -1748,32 +1748,31 @@ const Lecturers = () => {
     },
   ] //done
   const majorIcons = {
-    'Biomedical Engineering': 'biotech',
-    'Chemical Engineering': 'science',
-    'Civil Engineering': 'architecture',
-    'Electrical Engineering': 'electrical-services',
-    'Physical': 'bolt',
+    'School of Biomedical Engineering': 'biotech',
+    'School of Chemical & Environmental Engineering': 'science',
+    'School of Civil Engineering and Management': 'architecture',
+    'School of Electrical Engineering': 'bolt',
+    'Physics and Space Engineering': 'rocket-launch',
     'Industrial Engineering and Logistics Systems': 'factory',
-    'Information Technology': 'computer',
+    'School of Computer Science and Engineering': 'computer',
     'Mathematics': 'calculate',
-    'Space Engineering': 'satellite',
     'School of Business': 'business',
   };
   const major = [
-    { name: 'Biomedical Engineering', Lecturers: LecturersofBT},
-    { name: 'Chemical Engineering', Lecturers: LecturersofCH},
-    { name: 'Civil Engineering', Lecturers: LecturersofCE},
-    { name: 'Electrical Engineering', Lecturers: LecturersofEE},
-    { name: 'Physical', Lecturers: LecturersofPH},
+    { name: 'School of Biomedical Engineering', Lecturers: LecturersofBT},
+    { name: 'School of Chemical & Environmental Engineering', Lecturers: LecturersofCH},
+    { name: 'School of Civil Engineering and Management', Lecturers: LecturersofCE},
+    { name: 'School of Electrical Engineering', Lecturers: LecturersofEE},
+    { name: 'Physics and Space Engineering', Lecturers: LecturersofPH},
     { name: 'Industrial Engineering and Logistics Systems', Lecturers: LecturersofIEM},
-    { name: 'Information Technology', Lecturers: LecturersofIT}, //done
+    { name: 'School of Computer Science and Engineering', Lecturers: LecturersofIT}, //done
     { name: 'Mathematics', Lecturers: LecturersofMA},
     { name: 'School of Business', Lecturers: LecturersofBA}, //done
   ];
   const renderItem = ({ item }) => (
     <TouchableOpacity 
       style={styles.item} 
-      onPress={() => navigation.navigate('Lecturer Holder', { lecturers: item.Lecturers, majorName: item.name })}
+      onPress={() => navigation.navigate('Lecturer Table', { lecturers: item.Lecturers, majorName: item.name })}
     >
       <View style={styles.itemContent}>
         <MaterialIcons 
@@ -1834,6 +1833,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 2,
   },
+  
   itemContent: {
     flexDirection: 'row',
     alignItems: 'center',
