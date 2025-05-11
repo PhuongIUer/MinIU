@@ -34,6 +34,9 @@ import Lecturers from '../Screen/Lecturers';
 import LecturerTable from '../Screen/Lecturers/LecturerTable';
 
 import TrainingProgram from '../Screen/TrainingProgram';
+import ProgramTable from '../Screen/Program/ProgramTable';
+import MajorTable from '../Screen/Program/MajorTable';
+
 import Form from '../Screen/Form';
 import Club from '../Screen/Club';
 import CampusMap from '../Screen/CampusMap';
@@ -118,6 +121,16 @@ const MainDrawer = () => {
           options={{ drawerItemStyle: { display: 'none' }}} 
         />
               <Drawer.Screen name="Training program" component={TrainingProgram} options={{ drawerIcon: TrainingProgramIcon }} />
+        <Drawer.Screen 
+          name="Program Table" 
+          component={ProgramTable} 
+          options={{ drawerItemStyle: { display: 'none' }}} 
+        />
+        <Drawer.Screen 
+          name="Major Table" 
+          component={MajorTable} 
+          options={{ drawerItemStyle: { display: 'none' }}} 
+        />
               <Drawer.Screen name="Form" component={Form} options={{ drawerIcon: FormIcon }} />
               <Drawer.Screen name="Club" component={Club} options={{ drawerIcon: ClubIcon }} />
         <Drawer.Screen 
@@ -137,10 +150,9 @@ const MainDrawer = () => {
         />
         <Drawer.Screen 
           name="Learning Support and Personal Dev Club" 
+          component={LearningSupportAndPersonalDevClub} 
           options={{ drawerItemStyle: { display: 'none' }}} 
-        >
-        {props => <LearningSupportAndPersonalDevClub {...props} myParam="Hello from drawer!" />}
-        </Drawer.Screen>  
+        />
         <Drawer.Screen 
           name="Volunteer and Social Work Club" 
           component={VolunteerAndSocialWorkClub} 
@@ -155,12 +167,11 @@ const MainDrawer = () => {
               <Drawer.Screen name="Divisions and Centers" component={DivisionsAndCenters} options={{ drawerIcon: DivisionsAndCentersIcon }} />
               <Drawer.Screen name="Support" component={Support} options={{ drawerIcon: SupportIcon }} />
               <Drawer.Screen name="Useful Information" component={UsefulInformation} options={{ drawerIcon: UsefulInformationIcon }} />
-         <Drawer.Screen 
-          name="International University - Campus A" 
-          component={InternationalUniversity} 
-          options={{ drawerItemStyle: { display: 'none' }}} 
-        />
-
+          <Drawer.Screen 
+            name="International University - Campus A" 
+            component={InternationalUniversity} 
+            options={{ drawerItemStyle: { display: 'none' }}} 
+          />
           <Drawer.Screen 
           name="Floor 1 - Campus A" 
           component={Floor_1A} 
@@ -196,8 +207,7 @@ const MainDrawer = () => {
           component={Floor_7A}
           options={{ drawerItemStyle: { display: 'none' }}}
           />
-
-        <Drawer.Screen
+          <Drawer.Screen
           name="Central Library - Campus L"
           component={CentralLibrary}
           options={{ drawerItemStyle: { display: 'none' }}}

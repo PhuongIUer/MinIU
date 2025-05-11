@@ -12,13 +12,11 @@ const LecturerTable = ({ route }) => {
   const [searchText, setSearchText] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const lecturersPerPage = 10;
-  
-  // Filter lecturers based on search text
+
   const filteredLecturers = lecturers.filter(lecturer =>
     lecturer.name.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  // Calculate pagination
   const indexOfLastLecturer = currentPage * lecturersPerPage;
   const indexOfFirstLecturer = indexOfLastLecturer - lecturersPerPage;
   const currentLecturers = filteredLecturers.slice(indexOfFirstLecturer, indexOfLastLecturer);
@@ -51,16 +49,13 @@ const LecturerTable = ({ route }) => {
     scrollToTop();
   };
 
-  // Calculate which page numbers to show (always show 3 numbers)
   const getPageNumbers = () => {
     let startPage, endPage;
     
     if (totalPages <= 3) {
-      // Less than 3 total pages - show all
       startPage = 1;
       endPage = totalPages;
     } else {
-      // More than 3 total pages
       if (currentPage <= 2) {
         startPage = 1;
         endPage = 3;
@@ -94,7 +89,6 @@ const LecturerTable = ({ route }) => {
       >
         <Text style={styles.title}>{majorName} Lecturers</Text>
         
-        {/* Search input */}
         <TextInput
           style={styles.searchInput}
           placeholder="🔎 Search by name..."
@@ -121,7 +115,6 @@ const LecturerTable = ({ route }) => {
           <Text style={styles.noResults}>No lecturers found</Text>
         )}
 
-        {/* Pagination controls */}
         {filteredLecturers.length > lecturersPerPage && (
           <View style={styles.paginationContainer}>
             <TouchableOpacity 
