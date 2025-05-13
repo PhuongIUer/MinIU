@@ -5,7 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 // Constants for better organization and maintainability
 const MAJOR_ICONS = {
-  'School of Biomedical Engineering': 'biotech',
+  'Department of Biotechnology': 'biotech',
   'School of Chemical & Environmental Engineering': 'science',
   'School of Civil Engineering and Management': 'architecture',
   'School of Electrical Engineering': 'bolt',
@@ -14,11 +14,13 @@ const MAJOR_ICONS = {
   'School of Computer Science and Engineering': 'computer',
   'Mathematics': 'calculate',
   'School of Business': 'business',
+  'School of Biomedical Engineering': 'monitor-heart',
 };
 
 const MAJORS = {
   IT: [
-    'Bachelor of Engineering of Information Technology',
+    'Bachelor of Engineering of Information Technology (Major: Computer Engineering)',
+    'Bachelor of Engineering of Information Technology (Major: Network Engineering)',
     'Bachelor of Science in Computer Science',
     'Bachelor of Science in Data Science',
   ],
@@ -73,10 +75,13 @@ const MAJORS = {
     'Bachelor of Science in Statistics',
     'Bachelor of Financial Engineering and Risk Management',
   ],
+  BM: [
+    'Bachelor of Engineering of Biomedical Engineering'
+  ]
 };
 
 const MAJOR_DATA = [
-  { name: 'School of Biomedical Engineering', majors: MAJORS.BT },
+  { name: 'Department of Biotechnology', majors: MAJORS.BT },
   { name: 'School of Chemical & Environmental Engineering', majors: MAJORS.CH },
   { name: 'School of Civil Engineering and Management', majors: MAJORS.CE },
   { name: 'School of Electrical Engineering', majors: MAJORS.EE },
@@ -85,6 +90,7 @@ const MAJOR_DATA = [
   { name: 'School of Computer Science and Engineering', majors: MAJORS.IT },
   { name: 'Mathematics', majors: MAJORS.MA },
   { name: 'School of Business', majors: MAJORS.BA },
+  { name: 'School of Biomedical Engineering', majors: MAJORS.BM },
 ];
 
 const TrainingProgram = () => {

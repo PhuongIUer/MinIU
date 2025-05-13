@@ -90,14 +90,14 @@ const Lecturers = () => {
       position: 'Lecturer',
       email: 'lhduong@hcmiu.edu.vn',
       office: 'O1.610, International University',
-      imageUrl: 'https://it.hcmiu.edu.vn/wp-content/uploads/ultimatemember/27/profile_photo-190x190.jpg?1746508815',
+      imageUrl: 'https://it.hcmiu.edu.vn/wp-content/uploads/ultimatemember/27/profile_photo-190x190.jpg?1747046192',
     },
     {
       name: 'Dr. Ly Tu Nga',
       position: 'Lecturer',
       email: 'ltnga@hcmiu.edu.vn',
       office: 'Room 610, International University',
-      imageUrl: 'https://it.hcmiu.edu.vn/wp-content/uploads/ultimatemember/22/profile_photo-190.jpg?1746508817',
+      imageUrl: 'https://it.hcmiu.edu.vn/wp-content/uploads/ultimatemember/22/profile_photo-190.jpg?1747046192',
     },
     {
       name: 'Dr. Mai Hoang Bao An',
@@ -1747,8 +1747,102 @@ const Lecturers = () => {
       imageUrl: 'https://bt.hcmiu.edu.vn/ftp_images/ua_10072023120240125.jpg',
     },
   ] //done
+  const LecturersofBM = [
+    {
+      name: 'Assoc. Dr. NGUYỄN THỊ HIỆP',
+      position: 'Dean of School of Biomedical Engineering',
+      email: 'nthiep@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/09/image1.png',
+    },
+    {
+      name: 'Assoc. Dr. PHẠM THỊ THU HIỀN',
+      position: 'Department of Medical Instrumentation',
+      email: 'ptthien@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/09/image31-e1694678263324.jpg',
+    },
+    {
+      name: 'Dr. NGÔ THỊ LỤA',
+      position: 'Lecturer',
+      email: 'ntlua@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/09/image26.jpg',
+    },
+    {
+      name: 'Assoc. Dr. LÊ NGỌC BÍCH',
+      position: 'Lecturer',
+      email: 'ltnbich@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/09/image3.jpeg',
+    },
+    {
+      name: 'Dr. NGUYỄN THÀNH QUẢ',
+      position: 'Lecturer',
+      email: 'ntqua@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/09/image4.jpeg',
+    },
+    {
+      name: 'Dr. TRẦN LÊ GIANG',
+      position: 'Lecturer',
+      email: 'tlgiang@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/09/image5.jpeg',
+    },
+    {
+      name: 'Dr. NGUYỄN TẤN NHƯ',
+      position: 'Lecturer',
+      email: 'ntnhu@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/09/image22.jpg',
+    },
+    {
+      name: 'TS. HÀ THỊ THANH HƯƠNG',
+      position: 'Department chair of Department of tissue engineering and regenerative medicine',
+      email: 'htthuong@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/09/image24.jpeg',
+    },
+    {
+      name: 'PGS.TS. HUỲNH.CHẤN.KHÔN',
+      position: 'Lecturer',
+      email: 'hckhon@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/09/image23.jpeg',
+    },
+    {
+      name: 'TS. TRƯƠNG PHƯỚC LONG',
+      position: 'Lecturer',
+      email: 'tplong@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/09/image30.png',
+    },
+    {
+      name: 'TS. ĐOÀN NGỌC HOAN',
+      position: 'Lecturer',
+      email: 'dnhoan@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/05/Hinh-Doan-Ngoc-Hoan.jpg',
+    },
+    {
+      name: 'TS. TÔ THỊ NGỌC HÂN',
+      position: 'Lecturer',
+      email: 'ttnhan@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2023/09/image25.jpeg',
+    },
+    {
+      name: 'ThS. Nguyễn Dương Đức Anh',
+      position: 'Lecturer',
+      email: 'nddanh@hcmiu.edu.vn',
+      office: 'Room O1-405',
+      imageUrl: 'https://bme.hcmiu.edu.vn/wp-content/uploads/2024/11/z5524958157414_14387c6d5b73b91500031a776910594b.jpg',
+    },
+    
+  ] //done
   const majorIcons = {
-    'School of Biomedical Engineering': 'biotech',
+    'Department of Biotechnology': 'biotech',
     'School of Chemical & Environmental Engineering': 'science',
     'School of Civil Engineering and Management': 'architecture',
     'School of Electrical Engineering': 'bolt',
@@ -1757,17 +1851,19 @@ const Lecturers = () => {
     'School of Computer Science and Engineering': 'computer',
     'Mathematics': 'calculate',
     'School of Business': 'business',
+    'School of Biomedical Engineering': 'monitor-heart',
   };
   const major = [
-    { name: 'School of Biomedical Engineering', Lecturers: LecturersofBT},
+    { name: 'Department of Biotechnology', Lecturers: LecturersofBT},
     { name: 'School of Chemical & Environmental Engineering', Lecturers: LecturersofCH},
     { name: 'School of Civil Engineering and Management', Lecturers: LecturersofCE},
     { name: 'School of Electrical Engineering', Lecturers: LecturersofEE},
     { name: 'Physics and Space Engineering', Lecturers: LecturersofPH},
     { name: 'Industrial Engineering and Logistics Systems', Lecturers: LecturersofIEM},
-    { name: 'School of Computer Science and Engineering', Lecturers: LecturersofIT}, //done
+    { name: 'School of Computer Science and Engineering', Lecturers: LecturersofIT}, 
     { name: 'Mathematics', Lecturers: LecturersofMA},
-    { name: 'School of Business', Lecturers: LecturersofBA}, //done
+    { name: 'School of Business', Lecturers: LecturersofBA}, 
+    { name: 'School of Biomedical Engineering', Lecturers: LecturersofBM}, 
   ];
   const renderItem = ({ item }) => (
     <TouchableOpacity 

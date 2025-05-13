@@ -87,7 +87,7 @@ const LecturerTable = ({ route }) => {
         ref={scrollViewRef}
         contentContainerStyle={styles.scrollViewContent}
       >
-        <Text style={styles.title}>{majorName} Lecturers</Text>
+        <Text style={styles.title}>{majorName} - Lecturers</Text>
         
         <TextInput
           style={styles.searchInput}

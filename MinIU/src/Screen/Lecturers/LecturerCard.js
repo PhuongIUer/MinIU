@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Alert, Linking } from 'react-native';
 
 const LecturerCard = ({ name, position, email, office, imageUrl }) => {
+  const [imageError, setImageError] = React.useState(false);
+  
   const handleContact = () => {
     Alert.alert(
       'Contact Lecturer',
@@ -26,12 +28,20 @@ const LecturerCard = ({ name, position, email, office, imageUrl }) => {
     );
   };
 
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <TouchableOpacity onPress={handleContact} activeOpacity={0.7}>
       <View style={styles.card}>
         <View style={styles.imageContainer}>
-          {imageUrl ? (
-            <Image source={{ uri: imageUrl }} style={styles.image} />
+          {imageUrl && !imageError ? (
+            <Image 
+              source={{ uri: imageUrl }} 
+              style={styles.image} 
+              onError={handleImageError}
+            />
           ) : (
             <View style={styles.placeholderImage}>
               <Text style={styles.placeholderText}>Photo</Text>
