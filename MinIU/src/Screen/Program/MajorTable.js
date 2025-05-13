@@ -21,7 +21,7 @@ const PROGRAMS = {
     'Bachelor of Engineering of Information Technology (Major: Computer Engineering)':{
       'Semester 1': [
         {subject:'Calculus 1', credit:4},
-        {subject:'Physical Training 1', credit:3},
+        {subject:'Physical Training 1', credit:0},
         {subject:'Listening AE1', credit:2},
         {subject:'Writing AE1', credit:2},
         {subject:'Introduction to Computing', credit:3},
@@ -57,7 +57,7 @@ const PROGRAMS = {
         {subject:'Operating System', credit:4},
         {subject:'Principles of Database Management', credit:4},
         {subject:'Micro-processing Systems', credit:3},
-        {subject:'Physical Training 2', credit:3},
+        {subject:'Physical Training 2', credit:0},
         {subject:'Physics 3', credit:3},
         {subject:'Physics 3 Laboratory', credit:1},
         {subject:'Micro-processing Systems Laboratory', credit:1},
@@ -95,7 +95,7 @@ const PROGRAMS = {
     'Bachelor of Engineering of Information Technology (Major: Network Engineering)':{
       'Semester 1': [
         {subject:'Calculus 1', credit:4},
-        {subject:'Physical Training 1', credit:3},
+        {subject:'Physical Training 1', credit:0},
         {subject:'Listening AE1', credit:2},
         {subject:'Writing AE1', credit:2},
         {subject:'Introduction to Computing', credit:3},
@@ -130,7 +130,7 @@ const PROGRAMS = {
         {subject:'Operating System', credit:4},
         {subject:'Net-Centric Programming', credit:4},
         {subject:'System & Network Administration', credit:3},
-        {subject:'Physical Training 2', credit:3},
+        {subject:'Physical Training 2', credit:0},
         {subject:'Physics 3', credit:3},
         {subject:'Physics 3 Laboratory', credit:1},
       ],
@@ -190,7 +190,7 @@ const PROGRAMS = {
       ],
       'Semester 4': [
         {subject:'Computer Architecture', credit:4},
-        {subject:'Physical Training 1', credit:3},
+        {subject:'Physical Training 1', credit:0},
         {subject:'Elective 1', credit:4},
         {subject:'Object-Oriented Analysis and Design', credit:4},
         {subject:'Web Application Development', credit:4},
@@ -199,7 +199,7 @@ const PROGRAMS = {
         {subject:'Probability, Statistic & Random Process', credit:3},
         {subject:'Scientific Socialism', credit:2},
         {subject:'Principles of Programming Languages', credit:4},
-        {subject:'Physical Training 2', credit:3},
+        {subject:'Physical Training 2', credit:0},
         {subject:'Elective 2', credit:4},
         {subject:'Elective 3', credit:4},
       ],
@@ -248,7 +248,7 @@ const PROGRAMS = {
       ],
       'Semester 4': [
         {subject:'Scientific Socialism', credit:2},
-        {subject:'Physical Training 1', credit:3},
+        {subject:'Physical Training 1', credit:0},
         {subject:'General law', credit:3},
         {subject:'Artificial Intelligence', credit:4},
         {subject:'Statistical Learningt', credit:4},
@@ -292,7 +292,7 @@ const PROGRAMS = {
         {subject:'Business Computing Skills', credit:3},
         {subject:'Financial Accounting', credit:3},
         {subject:'Philosophy of Marxism and Leninism', credit:3},
-        {subject:'Physical Training 1', credit:1},
+        {subject:'Physical Training 1', credit:0},
       ],
       'Semester 2': [
         {subject:'Writing AE2', credit:2},
@@ -301,7 +301,7 @@ const PROGRAMS = {
         {subject:'Introduction to Macro Economics', credit:3},
         {subject:'Principles of Management', credit:3},
         {subject:'Political economics of Marxism and Leninism', credit:2},
-        {subject:'Physical Training 2', credit:2},
+        {subject:'Physical Training 2', credit:0},
         {subject:'Critical Thinking', credit:3},
         {subject:'Scientific Socialism', credit:2},
       ],
@@ -360,7 +360,7 @@ const PROGRAMS = {
         {subject:'Business Computing Skills', credit:3},
         {subject:'Financial Accounting', credit:3},
         {subject:'Philosophy of Marxism and Leninism', credit:3},
-        {subject:'Physical Training 1', credit:1},
+        {subject:'Physical Training 1', credit:0},
       ],
       'Semester 2': [
         {subject:'Writing AE2', credit:2},
@@ -1591,7 +1591,7 @@ const PROGRAMS = {
         { subject: 'Philosophy of Marxism and Leninism', credit: 3 },
         { subject: 'Structural Analysis 1', credit: 2 },
         { subject: 'Construction Materials', credit: 3 },
-        { subject: 'Physical Training 1', credit: 3 }
+        { subject: 'Physical Training 1', credit: 0 }
       ],
       'Summer Semester 1': [
         { subject: 'Calculus 2', credit: 4 },
@@ -1601,7 +1601,7 @@ const PROGRAMS = {
         { subject: 'Steel Structures', credit: 3 },
         { subject: 'Reinforced Concrete 1', credit: 3 },
         { subject: 'Operation Management in Construction', credit: 3 },
-        { subject: 'Physical Training 2', credit: 3 },
+        { subject: 'Physical Training 2', credit: 0 },
         { subject: 'Construction Management Project', credit: 1 },
         { subject: 'History of Vietnamese Communist Party', credit: 2 },
         { subject: 'Scientific Socialism', credit: 2 }
@@ -1979,7 +1979,7 @@ const PROGRAMS = {
         { subject: 'Writing AE1', credit: 2 },
         { subject: 'Listening AE1', credit: 2 },
         { subject: 'Introduction to EE', credit: 3 },
-        { subject: 'Physical Training 1', credit: 3 },
+        { subject: 'Physical Training 1', credit: 0 },
       ],
       'Semester 2': [
         { subject: 'Calculus 2', credit: 4 },
@@ -1989,7 +1989,7 @@ const PROGRAMS = {
         { subject: 'Writing AE2', credit: 2 },
         { subject: 'Speaking AE2', credit: 2 },
         { subject: 'Intro to Computer for Engineers', credit: 3 },
-        { subject: 'Physical Training 2', credit: 3 },
+        { subject: 'Physical Training 2', credit: 0 },
       ],
       'Semester 3': [
         { subject: 'Calculus 3', credit: 4 },
@@ -2089,7 +2089,7 @@ const PROGRAMS = {
         { subject: 'Calculus 1', credit: 4 },
         { subject: 'Physics 1', credit: 2 },
         { subject: 'Physics 2', credit: 2 },
-        { subject: 'Physical Training 1', credit: 3 },
+        { subject: 'Physical Training 1', credit: 0 },
         { subject: 'Chemistry Laboratory', credit: 1 },
         { subject: 'Chemistry for Engineers', credit: 3 }
       ],
@@ -2098,7 +2098,7 @@ const PROGRAMS = {
         { subject: 'Speaking AE2', credit: 2 },
         { subject: 'Calculus 2', credit: 4 },
         { subject: 'Critical Thinking', credit: 3 },
-        { subject: 'Physical Training 2', credit: 3 },
+        { subject: 'Physical Training 2', credit: 0 },
         { subject: 'Introduction to Industrial Engineering', credit: 1 },
         { subject: 'Engineering Drawing', credit: 2 },
         { subject: 'Physics 3', credit: 3 }
@@ -2167,7 +2167,7 @@ const PROGRAMS = {
         { subject: 'Calculus 1', credit: 4 },
         { subject: 'Physics 1', credit: 2 },
         { subject: 'Physics 2', credit: 2 },
-        { subject: 'Physical Training 1', credit: 3 },
+        { subject: 'Physical Training 1', credit: 0 },
         { subject: 'Chemistry Laboratory', credit: 1 },
         { subject: 'Chemistry for Engineers', credit: 3 }
       ],
@@ -2176,7 +2176,7 @@ const PROGRAMS = {
         { subject: 'Speaking AE2', credit: 2 },
         { subject: 'Calculus 2', credit: 4 },
         { subject: 'Critical Thinking', credit: 3 },
-        { subject: 'Physical Training 2', credit: 3 },
+        { subject: 'Physical Training 2', credit: 0 },
         { subject: 'Introduction to Industrial Engineering', credit: 1 },
         { subject: 'Engineering Drawing', credit: 2 },
         { subject: 'Physics 3', credit: 3 }
@@ -2245,7 +2245,7 @@ const PROGRAMS = {
         { subject: 'Calculus 1', credit: 4 },
         { subject: 'Physics 1', credit: 2 },
         { subject: 'Physics 2', credit: 2 },
-        { subject: 'Physical Training 1', credit: 3 },
+        { subject: 'Physical Training 1', credit: 0 },
         { subject: 'Chemistry Laboratory', credit: 1 },
         { subject: 'Chemistry for Engineers', credit: 3 }
       ],
@@ -2254,7 +2254,7 @@ const PROGRAMS = {
         { subject: 'Speaking AE2', credit: 2 },
         { subject: 'Calculus 2', credit: 4 },
         { subject: 'Critical Thinking', credit: 3 },
-        { subject: 'Physical Training 2', credit: 3 },
+        { subject: 'Physical Training 2', credit: 0 },
         { subject: 'Introduction to Logistics & Supply Chain Management', credit: 1 },
         { subject: 'Physics 3', credit: 3 }
       ],
@@ -2325,7 +2325,7 @@ const PROGRAMS = {
         { subject: 'Calculus 1', credit: 4 },
         { subject: 'Physics 1', credit: 2 },
         { subject: 'Physics 2', credit: 2 },
-        { subject: 'Physical Training 1', credit: 3 },
+        { subject: 'Physical Training 1', credit: 0 },
         { subject: 'Chemistry Laboratory', credit: 1 },
         { subject: 'Chemistry for Engineers', credit: 3 }
       ],
@@ -2334,7 +2334,7 @@ const PROGRAMS = {
         { subject: 'Speaking AE2', credit: 2 },
         { subject: 'Calculus 2', credit: 4 },
         { subject: 'Critical Thinking', credit: 3 },
-        { subject: 'Physical Training 2', credit: 3 },
+        { subject: 'Physical Training 2', credit: 0 },
         { subject: 'Introduction to Logistics & Supply Chain Management', credit: 1 },
         { subject: 'Physics 3', credit: 3 }
       ],
@@ -2406,14 +2406,14 @@ const PROGRAMS = {
         { subject: 'Physics 1', credit: 2 },
         { subject: 'Chemistry for Engineers', credit: 3 },
         { subject: 'Chemistry Laboratory', credit: 1 },
-        { subject: 'Physical Training 1', credit: 3 }
+        { subject: 'Physical Training 1', credit: 0 }
       ],
       'Semester 2': [
         { subject: 'Writing AE2', credit: 2 },
         { subject: 'Speaking AE2', credit: 2 },
         { subject: 'Calculus 2', credit: 4 },
         { subject: 'Physics 2', credit: 2 },
-        { subject: 'Physical Training 2', credit: 3 },
+        { subject: 'Physical Training 2', credit: 0 },
         { subject: 'Introduction to Industrial Engineering', credit: 1 }
       ],
       'Semester 3': [
