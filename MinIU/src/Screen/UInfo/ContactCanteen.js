@@ -3,13 +3,21 @@ import { View, Text, StyleSheet, ScrollView, Linking, TouchableOpacity } from 'r
 import { WebView } from 'react-native-webview';
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
-const Support = () => {
+const ContactCanteen = () => {
   const handlePhonePress = () => {
-    Linking.openURL('tel:+842837244270,,3334');
+    Linking.openURL('tel:+842837244270');
   };
 
   const handleEmailPress = () => {
-    Linking.openURL('mailto:oss@hcmiu.edu.vn');
+    Linking.openURL('mailto:iucanteen@hcmiu.edu.vn');
+  };
+
+  const handleWebsitePress = () => {
+    Linking.openURL('http://canteen.hcmiu.edu.vn/');
+  };
+
+  const handleFacebookPress = () => {
+    Linking.openURL('https://www.facebook.com/IU-Canteen-840432865967324/');
   };
 
   const mapEmbedHTML = `
@@ -27,7 +35,7 @@ const Support = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>Contact Information</Text>
+        <Text style={styles.headerText}>Canteen Contact Information</Text>
       </View>
 
       {/* Map Section */}
@@ -50,7 +58,7 @@ const Support = () => {
           International University - Vietnam National University HCM City
         </Text>
         <Text style={styles.detailText}>
-          Room O1.105, Quarter 6, Linh Trung Ward, Thu Duc City, HCM
+          Quarter 6, Linh Trung Ward, Thu Duc City, Ho Chi Minh City
         </Text>
       </View>
 
@@ -61,9 +69,10 @@ const Support = () => {
         </View>
         <TouchableOpacity onPress={handlePhonePress}>
           <Text style={[styles.contentText, styles.linkText]}>
-            (+84) 028 3724 4270 ext: 3334, 3826
+            (028) 37244270 – Ext: 3250, 3251
           </Text>
         </TouchableOpacity>
+        <Text style={styles.detailText}>Fax: (028) 37244271</Text>
       </View>
 
       <View style={styles.card}>
@@ -72,7 +81,27 @@ const Support = () => {
           <Text style={styles.sectionTitle}>Email</Text>
         </View>
         <TouchableOpacity onPress={handleEmailPress}>
-          <Text style={[styles.contentText, styles.linkText]}>oss@hcmiu.edu.vn</Text>
+          <Text style={[styles.contentText, styles.linkText]}>iucanteen@hcmiu.edu.vn</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.card}>
+        <View style={styles.section}>
+          <FontAwesome name="globe" size={24} color="#2c3592" />
+          <Text style={styles.sectionTitle}>Website</Text>
+        </View>
+        <TouchableOpacity onPress={handleWebsitePress}>
+          <Text style={[styles.contentText, styles.linkText]}>http://canteen.hcmiu.edu.vn/</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.card}>
+        <View style={styles.section}>
+          <FontAwesome name="facebook" size={24} color="#2c3592" />
+          <Text style={styles.sectionTitle}>Facebook</Text>
+        </View>
+        <TouchableOpacity onPress={handleFacebookPress}>
+          <Text style={[styles.contentText, styles.linkText]}>IU Canteen Facebook Page</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -143,4 +172,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Support;
+export default ContactCanteen;

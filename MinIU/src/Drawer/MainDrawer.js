@@ -42,7 +42,19 @@ import Club from '../Screen/Club';
 import CampusMap from '../Screen/CampusMap';
 import DivisionsAndCenters from '../Screen/DivisionsAndCenters';
 import Support from '../Screen/Support';
+
 import UsefulInformation from '../Screen/UsefulInformation';
+import Canteen from '../Screen/UInfo/Canteen';
+import Menu from '../Screen/UInfo/Menu';
+import MenuHolder from '../Screen/UInfo/MenuHolder';
+import ContactCanteen from '../Screen/UInfo/ContactCanteen';
+
+import DrivingLicense from '../Screen/UInfo/DrivingLicense';
+import FresherInformation from '../Screen/UInfo/FresherInformation';
+import GraduateInformation from '../Screen/UInfo/GraduateInformation';
+import Photocopy from '../Screen/UInfo/Photocopy';
+
+import StudentInformation from '../Screen/StudentInformation';
 import FeedbackRatingApp from '../Screen/FeedbackRatingApp';
 import FeedbackLecturers from '../Screen/FeedbackLecturers';
 import FeedbackUniversity from '../Screen/FeedbackUniversity';
@@ -91,7 +103,7 @@ const MainDrawer = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="MainApp - Home">
+        <Stack.Screen name="MinIU - Home">
           {() => (
             <Drawer.Navigator 
               initialRouteName="MinIU - Home"
@@ -167,6 +179,51 @@ const MainDrawer = () => {
               <Drawer.Screen name="Divisions and Centers" component={DivisionsAndCenters} options={{ drawerIcon: DivisionsAndCentersIcon }} />
               <Drawer.Screen name="Support" component={Support} options={{ drawerIcon: SupportIcon }} />
               <Drawer.Screen name="Useful Information" component={UsefulInformation} options={{ drawerIcon: UsefulInformationIcon }} />
+          <Drawer.Screen 
+            name="Student Information" 
+            component={StudentInformation} 
+            options={{ drawerItemStyle: { display: 'none' }}} 
+          />
+          <Drawer.Screen 
+            name="Fresher Information" 
+            component={FresherInformation} 
+            options={{ drawerItemStyle: { display: 'none' }}} 
+          />
+          <Drawer.Screen 
+            name="Graduate Information" 
+            component={GraduateInformation} 
+            options={{ drawerItemStyle: { display: 'none' }}} 
+          />
+          <Drawer.Screen 
+            name="Photocopy" 
+            component={Photocopy} 
+            options={{ drawerItemStyle: { display: 'none' }}} 
+          />
+          <Drawer.Screen 
+            name="Canteen" 
+            component={Canteen} 
+            options={{ drawerItemStyle: { display: 'none' }}} 
+          />
+          <Drawer.Screen 
+            name="Menu" 
+            component={Menu} 
+            options={{ drawerItemStyle: { display: 'none' }}} 
+          />
+          <Drawer.Screen 
+            name="MenuHolder" 
+            component={MenuHolder} 
+            options={{ drawerItemStyle: { display: 'none' }}} 
+          />
+          <Drawer.Screen 
+            name="Contact Canteen" 
+            component={ContactCanteen} 
+            options={{ drawerItemStyle: { display: 'none' }}} 
+          />
+          <Drawer.Screen 
+            name="Driving License" 
+            component={DrivingLicense} 
+            options={{ drawerItemStyle: { display: 'none' }}} 
+          />
           <Drawer.Screen 
             name="International University - Campus A" 
             component={InternationalUniversity} 

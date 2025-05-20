@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Animated, TextInput, TouchableOpacity, Alert, Linking } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
   const footerPosition = React.useRef(new Animated.Value(200)).current;
   const [studentId, setStudentId] = useState('');
   const [decodedInfo, setDecodedInfo] = useState(null);
-  const route = useRoute();
-  const { helo } = route.helo || {};
+  const navigation = useNavigation();
 
   React.useEffect(() => {
     Animated.timing(footerPosition, {
@@ -107,16 +107,12 @@ const Home = () => {
   };
 
   const handleOpenLink = () => {
+    handleLookup()
     if (!studentId) {
       Alert.alert('Error', 'Please enter a student ID first');
       return;
     }
-    
-    const url = `https://iuoss.com/tcshcd/?table_filter=${studentId}&submit=T%C3%ACm+ki%E1%BA%BFm`;
-    Linking.openURL(url).catch(err => {
-      Alert.alert('Error', 'Failed to open the link');
-      console.error('Failed to open URL:', err);
-    });
+    navigation.navigate('Student Information',{studentId : studentId});
   };
 
   return (
