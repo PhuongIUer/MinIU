@@ -31,7 +31,7 @@ const CampusMap = () => {
       onPress={() => navigation.navigate(item.screen)}
     >
       <LinearGradient
-        colors={['#4e54c8', '#8f94fb']}
+        colors={['#2c3592', '#8f94fb']}
         style={styles.iconContainer}
       >
         <MaterialIcons name={item.icon} size={28} color="white" />

@@ -26,7 +26,7 @@ const FeedbackLecturers = () => {
   const url = `https://docs.google.com/forms/d/e/1FAIpQLSebmTtKe4xlqZIKGQEDpPkGl-E-YZ7vI5fZWkwx_ySZAOzGEA/viewform?usp=sharing`;
 
   useEffect(() => {
-    showURLConfirmation(url); // Automatically open the link when the screen loads
+    showURLConfirmation(url); 
   }, []);
 
   const openLink = () => {

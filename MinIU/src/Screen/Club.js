@@ -32,7 +32,7 @@ const Club = () => {
       onPress={() => navigation.navigate(item.screen)}
     >
       <View style={styles.itemContent}>
-        <MaterialIcons name={clubIcons[item.name]} size={28} color="#4e54c8" style={styles.itemIcon} />
+        <MaterialIcons name={clubIcons[item.name]} size={28} color="#2c3592" style={styles.itemIcon} />
         <Text style={styles.itemText}>{item.name}</Text>
       </View>
       <MaterialIcons name="chevron-right" size={24} color="#6c757d" />

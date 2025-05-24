@@ -2,11 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 // Icons for each UsefulInformation
 const UsefulInformationIcons = {
   'Fresher Information': 'face', 
-  'Graduate Information': 'school', 
+  'After Graduate Information': 'school', 
   'Photocopy': 'content-copy', 
   'Canteen': 'restaurant', 
   'Driving License': 'directions-car' 
@@ -17,7 +17,7 @@ const UsefulInformation = () => {
 
   const UsefulInformations = [
     { name: 'Fresher Information', screen: 'Fresher Information' },
-    { name: 'Graduate Information', screen: 'Graduate Information' },
+    { name: 'After Graduate Information', screen: 'After Graduate Information' },
     { name: 'Photocopy', screen: 'Photocopy' },
     { name: 'Canteen', screen: 'Canteen' },
     { name: 'Driving License', screen: 'Driving License' },
@@ -26,10 +26,10 @@ const UsefulInformation = () => {
   const renderItem = ({ item }) => (
     <TouchableOpacity 
       style={styles.item} 
-      onPress={() => navigation.navigate(item.screen)}
+      onPress={() => navigation.navigate(item.screen, { screenback: 'Useful Information' })}
     >
       <View style={styles.itemContent}>
-        <MaterialIcons name={UsefulInformationIcons[item.name]} size={28} color="#4e54c8" style={styles.itemIcon} />
+        <MaterialIcons name={UsefulInformationIcons[item.name]} size={28} color="#2c3592" style={styles.itemIcon} />
         <Text style={styles.itemText}>{item.name}</Text>
       </View>
       <MaterialIcons name="chevron-right" size={24} color="#6c757d" />

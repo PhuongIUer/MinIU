@@ -45,8 +45,10 @@ const CardScreen = ({ route }) => {
   const translateY = useSharedValue(0);
   const savedTranslateX = useSharedValue(0);
   const savedTranslateY = useSharedValue(0);
-  
-  // Gesture handlers
+  const rotation = useSharedValue(0);
+  const isRotating = useSharedValue(false);
+
+
   const pinchGesture = Gesture.Pinch()
     .onUpdate((e) => {
       scale.value = savedScale.value * e.scale;
@@ -70,27 +72,40 @@ const CardScreen = ({ route }) => {
       { translateX: translateX.value },
       { translateY: translateY.value },
       { scale: scale.value },
+      { rotate: `${rotation.value}deg` },
     ],
   }));
+
+const handleRotatePress = () => {
+  if (isRotating.value) return; 
+
+  isRotating.value = true;
+  
+  const newRotation = rotation.value + (rotation.value % 360 === 0 ? -90 : 90);
+
+  rotation.value = withTiming(newRotation, { duration: 300 }, () => {
+    isRotating.value = false; 
+  });
+};
 
   const composedGesture = Gesture.Simultaneous(pinchGesture, panGesture);
 
   const handleBackPress = () => {
-    handleResetPress(); // Reset before navigating back
+    handleResetPress(); 
     navigation.navigate(navBack);
   };
 
   const handleResetPress = () => {
-    // Reset all animation values with smooth animation
     scale.value = withTiming(1.8);
     savedScale.value = 1;
     translateX.value = withTiming(-20);
     translateY.value = withTiming(-30);
     savedTranslateX.value = 0;
     savedTranslateY.value = 0;
+    rotation.value = withTiming(0);
   };
     useEffect(() => {
-      handleResetPress(); // Automatically open the link when the screen loads
+      handleResetPress(); 
     }, []);
   return (
     <View style={styles.container}>
@@ -103,6 +118,14 @@ const CardScreen = ({ route }) => {
       </TouchableOpacity>
       
       <TouchableOpacity 
+        style={[styles.actionButton, styles.rotateButton]}
+        onPress={handleRotatePress}
+        activeOpacity={0.7}
+      >
+        <Ionicons name="sync-outline" size={24} color="white" />
+      </TouchableOpacity>
+
+      <TouchableOpacity 
         style={[styles.actionButton, styles.resetButton]}
         onPress={handleResetPress}
         activeOpacity={0.7}
@@ -112,7 +135,7 @@ const CardScreen = ({ route }) => {
       
       <TouchableOpacity 
         style={[styles.actionButton, styles.URL]}
-        onPress={() => showURLConfirmation(url)} // Thay đổi ở đây
+        onPress={() => showURLConfirmation(url)} 
         activeOpacity={0.7}
       >
         <Ionicons name="enter-outline" size={24} color="white" />
@@ -134,7 +157,7 @@ const CardScreen = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F6F0F0',
     overflow: 'hidden',
   },
   imageContainer: {
@@ -154,7 +177,7 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     position: 'absolute',
-    backgroundColor: 'rgb(0, 0, 0)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     borderRadius: 30,
     width: 50,
     height: 50,
@@ -164,6 +187,10 @@ const styles = StyleSheet.create({
   },
   backButton: {
     bottom: 20,
+    right: 20,
+  },
+  rotateButton: {
+    bottom: 200,
     right: 20,
   },
   resetButton: {

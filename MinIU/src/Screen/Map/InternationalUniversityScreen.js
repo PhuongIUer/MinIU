@@ -49,16 +49,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   backButton: {
-    position: 'absolute',
-    bottom: 20,
+    bottom: 20, 
     right: 20,
-    backgroundColor: 'rgb(0, 0, 0)',
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     borderRadius: 30,
     width: 50,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 1,
+
   },
   title: {
     fontSize: 24,

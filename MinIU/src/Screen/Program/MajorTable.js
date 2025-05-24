@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
-// Constants for better organization
 const MAJOR_ICONS = {
   'School of Biomedical Engineering': 'biotech',
   'School of Chemical & Environmental Engineering': 'science',
@@ -1450,7 +1449,7 @@ const PROGRAMS = {
         { subject: 'History of Vietnamese Communist Party', credit: 2 },
         { subject: 'Ho Chi Minh\'s Thoughts', credit: 2 },
         { subject: 'Internship 1', credit: 2 },
-        { subject: 'Elective (min 1)', credit: 3 }  // Placeholder for chosen elective
+        { subject: 'Elective (min 1)', credit: 3 } 
       ],
       'Semester 6': [
         { subject: 'Basic Theory of Environmental Structures', credit: 2 },
@@ -2291,7 +2290,7 @@ const PROGRAMS = {
         { subject: 'Procurement Management', credit: 2 },
         { subject: 'Retail Management', credit: 3 },
         { subject: 'Time Series & Forecasting Techniques', credit: 2 },
-        { subject: 'LSCM Elective Course Group 1', credit: 3 } // Choose one: Business Law or Systems Engineering
+        { subject: 'LSCM Elective Course Group 1', credit: 3 }
       ],
       'Semester 6': [
         { subject: 'Scientific Writing', credit: 2 },
@@ -2629,20 +2628,20 @@ const PROGRAMS = {
 }
 const MajorTable = ({ route }) => {
   const navigation = useNavigation();
-  const { majors, majorName } = route.params;
+  const { majors, majorName, logo } = route.params;
 
   const handleBackPress = () => {
-    navigation.navigate('Training program');
+    navigation.navigate('Training Program');
   };
 
   const handleProgramPress = (programName) => {
-    // Find the program data based on the program name
     const programData = PROGRAMS[majorName] || {};
     navigation.navigate('Program Table', { 
       program: programData[programName],
       programName: programName,
       majorName: majorName,
       majors: majors,
+      logo: logo
     });
   };
 
@@ -2652,11 +2651,10 @@ const MajorTable = ({ route }) => {
       onPress={() => handleProgramPress(item.name)}
     >
       <View style={styles.itemContent}>
-        <MaterialIcons 
-          name={MAJOR_ICONS[majorName] || 'school'} 
-          size={28} 
-          color="#4e54c8" 
-          style={styles.itemIcon} 
+        <Image 
+          source={logo} 
+          style={styles.itemLogo} 
+          resizeMode="contain"
         />
         <Text style={styles.itemText}>{item.name}</Text>
       </View>
@@ -2721,8 +2719,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
-  itemIcon: {
-    marginRight: 16,
+  itemLogo: {
+    width: 40,
+    height: 40,
+    marginRight: 15,
   },
   itemText: {
     fontSize: 16,
@@ -2731,7 +2731,7 @@ const styles = StyleSheet.create({
   },
     actionButton: {
     position: 'absolute',
-    backgroundColor: 'rgb(0, 0, 0)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     borderRadius: 30,
     width: 50,
     height: 50,

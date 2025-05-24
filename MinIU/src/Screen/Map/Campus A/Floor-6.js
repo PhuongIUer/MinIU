@@ -17,7 +17,7 @@ const Floor_6 = () => {
   const savedTranslateX = useSharedValue(0);
   const savedTranslateY = useSharedValue(0);
 
-  // Gesture handlers
+
   const pinchGesture = Gesture.Pinch()
     .onUpdate((e) => {
       scale.value = savedScale.value * e.scale;
@@ -47,12 +47,11 @@ const Floor_6 = () => {
   const composedGesture = Gesture.Simultaneous(pinchGesture, panGesture);
 
   const handleBackPress = () => {
-    handleResetPress(); // Reset before navigating back
+    handleResetPress(); 
     navigation.navigate('International University - Campus A');
   };
 
   const handleResetPress = () => {
-    // Reset all animation values with smooth animation
     scale.value = withTiming(1);
     savedScale.value = 1;
     translateX.value = withTiming(0);
@@ -63,7 +62,6 @@ const Floor_6 = () => {
 
   return (
     <View style={styles.container}>
-      {/* Back Button */}
       <TouchableOpacity 
         style={[styles.actionButton, styles.backButton]}
         onPress={handleBackPress}
@@ -72,7 +70,6 @@ const Floor_6 = () => {
         <Ionicons name="arrow-back" size={24} color="white" />
       </TouchableOpacity>
       
-      {/* Reset Button */}
       <TouchableOpacity 
         style={[styles.actionButton, styles.resetButton]}
         onPress={handleResetPress}
@@ -112,7 +109,7 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     position: 'absolute',
-    backgroundColor: 'rgb(0, 0, 0)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     borderRadius: 30,
     width: 50,
     height: 50,

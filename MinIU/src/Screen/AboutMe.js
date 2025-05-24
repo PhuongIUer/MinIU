@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, Linking, TouchableOpacity } from 'react-native';
-import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons'; // You can use other icon libraries
+import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
 import logo from '../../assets/logo.png'
 const AboutMe = () => {
   const openURL = (url) => {
@@ -9,17 +9,15 @@ const AboutMe = () => {
 
   return (
     <ScrollView style={styles.container}>
-      {/* App Header */}
       <View style={styles.header}>
         <Image
-          source ={logo}// Replace with your app icon
+          source ={logo}
           style={styles.appIcon}
         />
         <Text style={styles.appName}>MinIU</Text>
         <Text style={styles.version}>Version 1.0.0</Text>
       </View>
 
-      {/* App Description */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>About Miniu</Text>
         <View style={styles.descriptionItem}>
@@ -44,7 +42,6 @@ const AboutMe = () => {
         </View>
       </View>
 
-      {/* Key Features */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Key Features</Text>
         <View style={styles.featureItem}>
@@ -65,7 +62,6 @@ const AboutMe = () => {
         </View>
       </View>
 
-      {/* Developer Contact */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Contact Developer</Text>
         <View style={styles.socialLinks}>
@@ -130,7 +126,7 @@ const styles = StyleSheet.create({
   appName: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#2c3592', // Green color matching the emoji
+    color: '#2c3592',
     marginBottom: 5,
   },
   version: {

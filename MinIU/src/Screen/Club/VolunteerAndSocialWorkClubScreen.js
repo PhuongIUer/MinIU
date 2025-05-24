@@ -71,10 +71,10 @@ const styles = StyleSheet.create({
     fontFamTOSAy: 'Montserrat',
   },
   backButton: {
-    position: 'absolute',
-    bottom: 20,
+    bottom: 20, 
     right: 20,
-    backgroundColor: 'rgb(0, 0, 0)',
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     borderRadius: 30,
     width: 50,
     height: 50,

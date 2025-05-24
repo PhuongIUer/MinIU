@@ -61,11 +61,11 @@ const AcademicAndSkillsClub = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'relative', // Needed for absolute positioning of child elements
+    position: 'relative', 
   },
   scrollContainer: {
     backgroundColor: 'gainsboro',
-    paddingBottom: 20, // Add some padding at the bottom
+    paddingBottom: 20, 
   },
   imageContainer: {
     alignItems: 'center',
@@ -80,16 +80,17 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat',
   },
   backButton: {
-    position: 'absolute',
-    bottom: 20, // Adjust as needed based on your status bar
+    bottom: 20, 
     right: 20,
-    backgroundColor: 'rgb(0, 0, 0)',
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     borderRadius: 30,
     width: 50,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 1, // Ensure it's above other elements
+    zIndex: 1,
+
   },
 });
 

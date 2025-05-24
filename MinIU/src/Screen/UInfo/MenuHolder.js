@@ -1,16 +1,18 @@
 import React, { useState, useRef } from 'react';
 import { View, StyleSheet, ScrollView, Image, Text, Dimensions, TouchableOpacity, Modal, Alert } from 'react-native';
 import { GestureHandlerRootView, LongPressGestureHandler, State } from 'react-native-gesture-handler';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 const MenuHolder = ({ route }) => {
-  const { store } = route.params;
+  const { store, screenback } = route.params;
+  
   const screenWidth = Dimensions.get('window').width;
   const [selectedImage, setSelectedImage] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [actionModalVisible, setActionModalVisible] = useState(false);
   const [currentActionImage, setCurrentActionImage] = useState(null);
   const longPressRef = useRef(null);
-
+  const navigation = useNavigation();
   const handleImagePress = (image) => {
     setSelectedImage(image);
     setModalVisible(true);
@@ -32,7 +34,7 @@ const MenuHolder = ({ route }) => {
   };
 
   const downloadImage = () => {
-    Alert.alert('Info', 'Download functionality would be implemented here');
+    Alert.alert('Info', 'Download functionality is still in development.');
     closeActionModal();
   };
 
@@ -41,10 +43,15 @@ const MenuHolder = ({ route }) => {
       handleLongPress(image);
     }
   };
-
+  const handleBackPress = () => {
+    navigation.navigate(screenback);
+  };
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <View style={styles.container} contentContainerStyle={styles.contentContainer}>
+
+
+      <ScrollView >
         <View style={styles.titleContainer}>
           <Text style={styles.storeName}>{store.name}</Text>
           <Text style={styles.menuTitle}>MENU</Text>
@@ -102,10 +109,10 @@ const MenuHolder = ({ route }) => {
           <View style={styles.actionModalContainer}>
             <View style={styles.actionModalContent}>
               <TouchableOpacity 
-                style={styles.actionButton}
+                style={styles.actionButton_}
                 onPress={downloadImage}
               >
-                <Text style={styles.actionButtonText}>Download Image</Text>
+                <Text style={styles.actionButton_Text}>Download Image</Text>
               </TouchableOpacity>
               <TouchableOpacity 
                 style={styles.cancelButton}
@@ -117,6 +124,14 @@ const MenuHolder = ({ route }) => {
           </View>
         </Modal>
        </ScrollView>
+                 <TouchableOpacity 
+                   style={[styles.actionButton, styles.backButton]}
+                   onPress={handleBackPress}
+                   activeOpacity={0.7}
+                 >
+                   <Ionicons name="arrow-back" size={24} color="white" />
+                 </TouchableOpacity>
+       </View>
     </GestureHandlerRootView>
   );
 };
@@ -225,12 +240,12 @@ const styles = StyleSheet.create({
     width: '80%',
     padding: 20,
   },
-  actionButton: {
+  actionButton_: {
     padding: 15,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
   },
-  actionButtonText: {
+  actionButton_Text: {
     fontSize: 18,
     textAlign: 'center',
   },
@@ -242,6 +257,20 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     color: 'red',
+  },
+    actionButton: {
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    borderRadius: 30,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1,
+  },
+  backButton: {
+    bottom: 20,
+    right: 20,
   },
 });
 

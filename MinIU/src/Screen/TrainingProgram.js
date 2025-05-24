@@ -1,21 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-// Constants for better organization and maintainability
-const MAJOR_ICONS = {
-  'Department of Biotechnology': 'biotech',
-  'School of Chemical & Environmental Engineering': 'science',
-  'School of Civil Engineering and Management': 'architecture',
-  'School of Electrical Engineering': 'bolt',
-  'Physics and Space Engineering': 'rocket-launch',
-  'Industrial Engineering and Logistics Systems': 'factory',
-  'School of Computer Science and Engineering': 'computer',
-  'Mathematics': 'calculate',
-  'School of Business': 'business',
-  'School of Biomedical Engineering': 'monitor-heart',
-};
 
 const MAJORS = {
   IT: [
@@ -81,16 +68,16 @@ const MAJORS = {
 };
 
 const MAJOR_DATA = [
-  { name: 'Department of Biotechnology', majors: MAJORS.BT },
-  { name: 'School of Chemical & Environmental Engineering', majors: MAJORS.CH },
-  { name: 'School of Civil Engineering and Management', majors: MAJORS.CE },
-  { name: 'School of Electrical Engineering', majors: MAJORS.EE },
-  { name: 'Physics and Space Engineering', majors: MAJORS.PH },
-  { name: 'Industrial Engineering and Logistics Systems', majors: MAJORS.IEM },
-  { name: 'School of Computer Science and Engineering', majors: MAJORS.IT },
-  { name: 'Mathematics', majors: MAJORS.MA },
-  { name: 'School of Business', majors: MAJORS.BA },
-  { name: 'School of Biomedical Engineering', majors: MAJORS.BM },
+  { name: 'Department of Biotechnology', majors: MAJORS.BT, logo: require('../../assets/Logo/BT.png') },
+  { name: 'School of Chemical & Environmental Engineering', majors: MAJORS.CH, logo: require('../../assets/Logo/CH.png') },
+  { name: 'School of Civil Engineering and Management', majors: MAJORS.CE, logo: require('../../assets/Logo/CE.png') },
+  { name: 'School of Electrical Engineering', majors: MAJORS.EE, logo: require('../../assets/Logo/EE.png') },
+  { name: 'Physics and Space Engineering', majors: MAJORS.PH, logo: require('../../assets/Logo/PH.png') },
+  { name: 'Industrial Engineering and Logistics Systems', majors: MAJORS.IEM, logo: require('../../assets/Logo/IEM.jpg') },
+  { name: 'School of Computer Science and Engineering', majors: MAJORS.IT, logo: require('../../assets/Logo/IT.png') },
+  { name: 'Mathematics', majors: MAJORS.MA, logo: require('../../assets/Logo/MA.png') },
+  { name: 'School of Business', majors: MAJORS.BA,  logo: require('../../assets/Logo/BS.jpg') },
+  { name: 'School of Biomedical Engineering', majors: MAJORS.BM, logo: require('../../assets/Logo/BME.jpg') },
 ];
 
 const TrainingProgram = () => {
@@ -101,15 +88,15 @@ const TrainingProgram = () => {
       style={styles.item} 
       onPress={() => navigation.navigate('Major Table', { 
         majors: item.majors.map(name => ({ name })), 
-        majorName: item.name 
+        majorName: item.name,
+        logo: item.logo
       })}
     >
       <View style={styles.itemContent}>
-        <MaterialIcons 
-          name={MAJOR_ICONS[item.name] || 'school'} 
-          size={28} 
-          color="#4e54c8" 
-          style={styles.itemIcon} 
+        <Image 
+          source={item.logo} 
+          style={styles.itemLogo} 
+          resizeMode="contain"
         />
         <Text style={styles.itemText}>{item.name}</Text>
       </View>
@@ -129,7 +116,6 @@ const TrainingProgram = () => {
   );
 };
 
-// Using StyleSheet.create for better performance
 const styles = StyleSheet.create({
   screen: {
     paddingTop: 20,
@@ -159,8 +145,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
-  itemIcon: {
-    marginRight: 16,
+  itemLogo: {
+    width: 40,
+    height: 40,
+    marginRight: 15,
   },
   itemText: {
     fontSize: 16,

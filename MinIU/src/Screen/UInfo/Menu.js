@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, ScrollView, TouchableOpacity, Image, Text } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 
-// Import all your images
 import bb_logo from '../../../assets/Canteen/Menu/bb.png';
 import banhviet from '../../../assets/Canteen/Menu/banhviet.jpg';
 import bigu_logo from '../../../assets/Canteen/Menu/bigu.jpg';
@@ -11,11 +12,14 @@ import storycoffee_logo from '../../../assets/Canteen/Menu/storycoffee.png';
 import sushumashe_logo from '../../../assets/Canteen/Menu/sushumashe.jpg';
 import thezerocoffee_logo from '../../../assets/Canteen/Menu/thezerocoffee.jpg';
 
-const Menu = ({ navigation }) => {
+const Menu = ({ route }) => {
+  const navigation = useNavigation();
+  const screenback = route?.params?.screenback || 'MinIU - Home'; 
+  const name = 'Menu';
   const stores = [
     {
       id: '1',
-      name: 'BB',
+      name: 'B&B Cafeteria',
       logo: bb_logo,
       menuImages: [
         require('../../../assets/Canteen/Menu/bb-(1).jpg'),
@@ -24,14 +28,6 @@ const Menu = ({ navigation }) => {
     },
     {
       id: '2',
-      name: 'Banh Viet',
-      logo: banhviet,
-      menuImages: [
-        require('../../../assets/Canteen/Menu/banhviet.jpg')
-      ]
-    },
-    {
-      id: '3',
       name: 'Bigu',
       logo: bigu_logo,
       menuImages: [
@@ -41,7 +37,7 @@ const Menu = ({ navigation }) => {
       ]
     },
     {
-      id: '4',
+      id: '3',
       name: 'Com Viet',
       logo: comviet_logo,
       menuImages: [
@@ -51,8 +47,8 @@ const Menu = ({ navigation }) => {
       ]
     },
     {
-      id: '5',
-      name: 'HD',
+      id: '4',
+      name: 'H & D Food court',
       logo: hd_logo,
       menuImages: [
         require('../../../assets/Canteen/Menu/hd-(1).jpg'),
@@ -63,7 +59,7 @@ const Menu = ({ navigation }) => {
       ]
     },
     {
-      id: '6',
+      id: '5',
       name: 'Story Coffee',
       logo: storycoffee_logo,
       menuImages: [
@@ -72,35 +68,56 @@ const Menu = ({ navigation }) => {
       ]
     },
     {
-      id: '7',
-      name: 'Sushimashe',
+      id: '6',
+      name: 'Sushi mashe',
       logo: sushumashe_logo,
       menuImages: [
         require('../../../assets/Canteen/Menu/sushumashe-(1).jpg')
       ]
     },
     {
-      id: '8',
+      id: '7',
       name: 'The Zero Coffee',
       logo: thezerocoffee_logo,
       menuImages: [
         require('../../../assets/Canteen/Menu/thezerocoffee-(1).jpg')
       ]
-    }
+    },
+    {
+      id: '8',
+      name: 'Banh Viet',
+      logo: banhviet,
+      menuImages: [
+        require('../../../assets/Canteen/Menu/banhviet.jpg')
+      ]
+    },
   ];
-
+  const handleBackPress = () => {
+    navigation.navigate(screenback);
+  };
   return (
+    <View>
     <ScrollView contentContainerStyle={styles.container}>
       {stores.map((store) => (
-        <TouchableOpacity 
-          key={store.id}
-          style={styles.storeContainer}
-          onPress={() => navigation.navigate('MenuHolder', { store })}
-        >
-          <Image source={store.logo} style={styles.logo} />
-        </TouchableOpacity>
+        <View key={store.id} style={styles.storeWrapper}>
+          <TouchableOpacity 
+            style={styles.storeContainer}
+            onPress={() => navigation.navigate('MenuHolder', { store, screenback: name })}
+          >
+            <Image source={store.logo} style={styles.logo} />
+          </TouchableOpacity>
+          <Text style={styles.storeName}>{store.name}</Text>
+        </View>
       ))}
     </ScrollView>
+          <TouchableOpacity 
+            style={[styles.actionButton, styles.backButton]}
+            onPress={handleBackPress}
+            activeOpacity={0.7}
+          >
+            <Ionicons name="arrow-back" size={24} color="white" />
+          </TouchableOpacity>
+    </View>
   );
 };
 
@@ -111,11 +128,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 10,
   },
-  storeContainer: {
+  storeWrapper: {
     width: '45%',
-    aspectRatio: 1,
+    alignItems: 'center',
     margin: 8,
-    backgroundColor: '#f5f5f5',
+  },
+  storeContainer: {
+    width: '100%',
+    aspectRatio: 1,
+    backgroundColor: '#fff',
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -125,6 +146,30 @@ const styles = StyleSheet.create({
     width: '80%',
     height: '80%',
     resizeMode: 'contain',
+  },
+  storeName: {
+    marginTop: 8,
+    textAlign: 'center',
+    fontWeight: '500',
+    color: '#222831',
+    textShadowColor: 'rgba(0, 0, 0, 0.2)',
+    textShadowOffset: { width: 0.5, height: 0.5 }, 
+    textShadowRadius: 1,
+    fontSize: 16,
+  },
+  actionButton: {
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    borderRadius: 30,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1,
+  },
+  backButton: {
+    bottom: 20,
+    right: 20,
   },
 });
 

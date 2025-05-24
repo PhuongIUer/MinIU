@@ -61,9 +61,17 @@ const FormData = [
 const Form = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState(FormData);
+  const [expandedSections, setExpandedSections] = useState({});
 
   const handlePress = (url) => {
     Linking.openURL(url).catch(err => console.error("Couldn't load page", err));
+  };
+
+  const toggleSection = (title) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [title]: !prev[title]
+    }));
   };
 
   const handleSearch = (query) => {
@@ -92,17 +100,19 @@ const Form = () => {
   );
 
   const renderSectionHeader = ({ section: { title } }) => (
-    <LinearGradient
-      colors={['#4e54c8', '#8f94fb']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 0 }}
-      style={styles.sectionHeader}
-    >
-      <View style={styles.sectionHeaderContent}>
-        <MaterialIcons name={categoryIcons[title]} size={24} color="white" />
-        <Text style={styles.sectionHeaderText}>{title}</Text>
-      </View>
-    </LinearGradient>
+    <TouchableOpacity onPress={() => toggleSection(title)}>
+      <LinearGradient
+        colors={['#2c3592', '#8f94fb']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={styles.sectionHeader}
+      >
+        <View style={styles.sectionHeaderContent}>
+          <MaterialIcons name={categoryIcons[title]} size={24} color="white" />
+          <Text style={styles.sectionHeaderText}>{title}</Text>
+        </View>
+      </LinearGradient>
+    </TouchableOpacity>
   );
 
   return (
@@ -119,7 +129,10 @@ const Form = () => {
       </View>
 
       <SectionList
-        sections={filteredData}
+        sections={filteredData.map(section => ({
+          ...section,
+          data: expandedSections[section.title] ? section.data : []
+        }))}
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
         keyExtractor={(item) => item.name}

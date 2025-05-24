@@ -1698,13 +1698,6 @@ const Lecturers = () => {
       imageUrl: 'https://bt.hcmiu.edu.vn/ftp_images/ua_07072023104512528.png',
     },
     {
-      name: 'Dr. Thanh M Nguyen',
-      position: 'Vice Dean of Biotechnology',
-      email: 'nmthanh@hcmiu.edu.vn',
-      office: 'Room A1-708',
-      imageUrl: 'https://bt.hcmiu.edu.vn/ftp_images/ua_10072023103432724.jpg',
-    },
-    {
       name: 'MSc. Dao XA Bui',
       position: 'Lecturer',
       email: 'bxadao@hcmiu.edu.vn',
@@ -1841,41 +1834,29 @@ const Lecturers = () => {
     },
     
   ] //done
-  const majorIcons = {
-    'Department of Biotechnology': 'biotech',
-    'School of Chemical & Environmental Engineering': 'science',
-    'School of Civil Engineering and Management': 'architecture',
-    'School of Electrical Engineering': 'bolt',
-    'Physics and Space Engineering': 'rocket-launch',
-    'Industrial Engineering and Logistics Systems': 'factory',
-    'School of Computer Science and Engineering': 'computer',
-    'Mathematics': 'calculate',
-    'School of Business': 'business',
-    'School of Biomedical Engineering': 'monitor-heart',
-  };
-  const major = [
-    { name: 'Department of Biotechnology', Lecturers: LecturersofBT},
-    { name: 'School of Chemical & Environmental Engineering', Lecturers: LecturersofCH},
-    { name: 'School of Civil Engineering and Management', Lecturers: LecturersofCE},
-    { name: 'School of Electrical Engineering', Lecturers: LecturersofEE},
-    { name: 'Physics and Space Engineering', Lecturers: LecturersofPH},
-    { name: 'Industrial Engineering and Logistics Systems', Lecturers: LecturersofIEM},
-    { name: 'School of Computer Science and Engineering', Lecturers: LecturersofIT}, 
-    { name: 'Mathematics', Lecturers: LecturersofMA},
-    { name: 'School of Business', Lecturers: LecturersofBA}, 
-    { name: 'School of Biomedical Engineering', Lecturers: LecturersofBM}, 
+    const major = [
+    { name: 'Department of Biotechnology', Lecturers: LecturersofBT, logo: require('../../assets/Logo/BT.png') },
+    { name: 'School of Chemical & Environmental Engineering', Lecturers: LecturersofCH, logo: require('../../assets/Logo/CH.png') },
+    { name: 'School of Civil Engineering and Management', Lecturers: LecturersofCE, logo: require('../../assets/Logo/CE.png') },
+    { name: 'School of Electrical Engineering', Lecturers: LecturersofEE, logo: require('../../assets/Logo/EE.png') },
+    { name: 'Physics and Space Engineering', Lecturers: LecturersofPH, logo: require('../../assets/Logo/PH.png') },
+    { name: 'Industrial Engineering and Logistics Systems', Lecturers: LecturersofIEM, logo: require('../../assets/Logo/IEM.jpg') },
+    { name: 'School of Computer Science and Engineering', Lecturers: LecturersofIT, logo: require('../../assets/Logo/IT.png') }, 
+    { name: 'Department of Mathematics', Lecturers: LecturersofMA, logo: require('../../assets/Logo/MA.png') },
+    { name: 'School of Business', Lecturers: LecturersofBA, logo: require('../../assets/Logo/BS.jpg') }, 
+    { name: 'School of Biomedical Engineering', Lecturers: LecturersofBM, logo: require('../../assets/Logo/BME.jpg') }, 
   ];
+
   const renderItem = ({ item }) => (
     <TouchableOpacity 
       style={styles.item} 
       onPress={() => navigation.navigate('Lecturer Table', { lecturers: item.Lecturers, majorName: item.name })}
     >
       <View style={styles.itemContent}>
-        <MaterialIcons 
-          name={majorIcons[item.name] || 'school'} 
-          size={28} 
-          color="#4e54c8" 
-          style={styles.itemIcon} 
+        <Image 
+          source={item.logo} 
+          style={styles.itemLogo} 
+          resizeMode="contain"
         />
         <Text style={styles.itemText}>{item.name}</Text>
       </View>
@@ -1929,13 +1910,14 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 2,
   },
-  
   itemContent: {
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
   },
-  itemIcon: {
+  itemLogo: {
+    width: 40,
+    height: 40,
     marginRight: 15,
   },
   itemText: {

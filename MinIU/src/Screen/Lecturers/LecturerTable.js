@@ -13,9 +13,24 @@ const LecturerTable = ({ route }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const lecturersPerPage = 10;
 
-  const filteredLecturers = lecturers.filter(lecturer =>
+const getPositionPriority = (position = '') => {
+  const lower = position.toLowerCase();
+  if (lower.includes('dean') && !lower.includes('vice')) return 0;
+  if (lower.includes('vice dean')) return 1;
+  if (lower.includes('head')) return 2;
+  if (lower.includes('secretary')) return 3;
+  return 4; 
+};
+
+const filteredLecturers = lecturers
+  .filter(lecturer =>
     lecturer.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  )
+  .sort((a, b) => {
+    const priorityA = getPositionPriority(a.position);
+    const priorityB = getPositionPriority(b.position);
+    return priorityA - priorityB;
+  });
 
   const indexOfLastLecturer = currentPage * lecturersPerPage;
   const indexOfFirstLecturer = indexOfLastLecturer - lecturersPerPage;
@@ -42,6 +57,16 @@ const LecturerTable = ({ route }) => {
       setCurrentPage(currentPage - 1);
       scrollToTop();
     }
+  };
+
+  const goToFirstPage = () => {
+    setCurrentPage(1);
+    scrollToTop();
+  };
+
+  const goToLastPage = () => {
+    setCurrentPage(totalPages);
+    scrollToTop();
   };
 
   const goToPage = (page) => {
@@ -118,11 +143,19 @@ const LecturerTable = ({ route }) => {
         {filteredLecturers.length > lecturersPerPage && (
           <View style={styles.paginationContainer}>
             <TouchableOpacity 
+              onPress={goToFirstPage} 
+              disabled={currentPage === 1}
+              style={[styles.pageButton, currentPage === 1 && styles.disabledButton]}
+            >
+              <Text style={styles.pageButtonText}>First</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
               onPress={goToPrevPage} 
               disabled={currentPage === 1}
               style={[styles.pageButton, currentPage === 1 && styles.disabledButton]}
             >
-              <Text style={styles.pageButtonText}>Previous</Text>
+              <Text style={styles.pageButtonText}>Pre</Text>
             </TouchableOpacity>
 
             {pageNumbers.map(page => (
@@ -141,6 +174,14 @@ const LecturerTable = ({ route }) => {
               style={[styles.pageButton, currentPage === totalPages && styles.disabledButton]}
             >
               <Text style={styles.pageButtonText}>Next</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+              onPress={goToLastPage} 
+              disabled={currentPage === totalPages}
+              style={[styles.pageButton, currentPage === totalPages && styles.disabledButton]}
+            >
+              <Text style={styles.pageButtonText}>Last</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -179,7 +220,7 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     position: 'absolute',
-    backgroundColor: 'rgb(0, 0, 0)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     borderRadius: 30,
     width: 50,
     height: 50,
@@ -199,9 +240,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   pageButton: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 5,
     paddingVertical: 8,
-    marginHorizontal: 5,
+    marginHorizontal: 3,
     backgroundColor: '#007bff',
     borderRadius: 5,
   },

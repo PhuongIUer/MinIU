@@ -26,7 +26,7 @@ const FeedbackUniversity = () => {
   const url = `https://forms.gle/RmVoFifP2NSJBvtd6`;
 
   useEffect(() => {
-    showURLConfirmation(url); // Automatically open the link when the screen loads
+    showURLConfirmation(url); 
   }, []);
 
   const openLink = () => {

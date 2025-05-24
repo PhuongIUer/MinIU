@@ -2,8 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking, TouchableOpacity } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 const ContactCanteen = () => {
+  const navigation = useNavigation();
   const handlePhonePress = () => {
     Linking.openURL('tel:+842837244270');
   };
@@ -33,12 +36,12 @@ const ContactCanteen = () => {
   `;
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
+    <ScrollView>
       <View style={styles.header}>
         <Text style={styles.headerText}>Canteen Contact Information</Text>
       </View>
 
-      {/* Map Section */}
       <View style={styles.mapContainer}>
         <WebView
           originWhitelist={['*']}
@@ -105,6 +108,14 @@ const ContactCanteen = () => {
         </TouchableOpacity>
       </View>
     </ScrollView>
+      <TouchableOpacity 
+        style={styles.backButton}
+        onPress={() => navigation.navigate('Useful Information')}
+        activeOpacity={0.7}
+      >
+        <Ionicons name="arrow-back" size={24} color="white" />
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -112,6 +123,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
+  },
+  backButton: {
+    bottom: 20, 
+    right: 20,
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    borderRadius: 30,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1,
   },
   header: {
     padding: 15,

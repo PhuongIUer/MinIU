@@ -6,19 +6,18 @@ import { Ionicons } from '@expo/vector-icons';
 
 const ProgramTable = ({ route }) => {
   const navigation = useNavigation();
-  const { program, programName, majorName, majors } = route.params;
+  const { program, programName, majorName, majors, logo } = route.params;
 
   const handleBackPress = () => {
     navigation.navigate('Major Table', { 
         majors: majors, 
         majorName: majorName, 
+        logo: logo
       });
   };
 
-  // Format the data for SectionList
   const formatData = () => {
     return Object.entries(program).map(([semester, courses]) => {
-      // Calculate total credits for this semester
       const semesterCredits = courses.reduce((total, course) => total + course.credit, 0);
       
       return {
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
   },
   totalCredits: {
     fontSize: 14,
-    color: '#4e54c8',
+    color: '#2c3592',
     fontWeight: '600',
   },
   creditNote: {
@@ -124,7 +123,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   semesterHeader: {
-    backgroundColor: '#4e54c8',
+    backgroundColor: '#2c3592',
     paddingVertical: 8,
     paddingHorizontal: 16,
     flexDirection: 'row',
@@ -166,7 +165,7 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     position: 'absolute',
-    backgroundColor: 'rgb(0, 0, 0)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     borderRadius: 30,
     width: 50,
     height: 50,

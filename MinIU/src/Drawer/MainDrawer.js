@@ -132,7 +132,7 @@ const MainDrawer = () => {
           component={LecturerTable} 
           options={{ drawerItemStyle: { display: 'none' }}} 
         />
-              <Drawer.Screen name="Training program" component={TrainingProgram} options={{ drawerIcon: TrainingProgramIcon }} />
+              <Drawer.Screen name="Training Program" component={TrainingProgram} options={{ drawerIcon: TrainingProgramIcon }} />
         <Drawer.Screen 
           name="Program Table" 
           component={ProgramTable} 
@@ -190,7 +190,7 @@ const MainDrawer = () => {
             options={{ drawerItemStyle: { display: 'none' }}} 
           />
           <Drawer.Screen 
-            name="Graduate Information" 
+            name="After Graduate Information" 
             component={GraduateInformation} 
             options={{ drawerItemStyle: { display: 'none' }}} 
           />

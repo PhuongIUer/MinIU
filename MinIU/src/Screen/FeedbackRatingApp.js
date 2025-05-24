@@ -28,7 +28,7 @@ const FeedbackRatingApp = () => {
   const url = `https://forms.gle/oK7wNbSc5buTzcjX9`;
 
   useEffect(() => {
-    showURLConfirmation(url); // Automatically open the link when the screen loads
+    showURLConfirmation(url); 
   }, []);
 
   return (

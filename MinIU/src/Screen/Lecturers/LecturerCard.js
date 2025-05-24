@@ -3,7 +3,29 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Alert, Linking } from 
 
 const LecturerCard = ({ name, position, email, office, imageUrl }) => {
   const [imageError, setImageError] = React.useState(false);
-  
+
+  const getCardStyle = () => {
+    const lowerPosition = position.toLowerCase();
+    if (lowerPosition.includes('head')) {
+      return styles.headOfDepartmentCard;
+    } else if (lowerPosition.includes('dean') && !lowerPosition.includes('vice')) {
+      return styles.deanCard;
+    } else if (lowerPosition.includes('vice')) {
+      return styles.viceDeanCard;
+    } else if (lowerPosition.includes('secretary')) {
+      return styles.secretaryCard;
+    } 
+    return styles.card;
+  };
+
+  const getTextStyle = () => {
+    const cardStyle = getCardStyle();
+    if (cardStyle !== styles.card) {
+      return styles.specialText;
+    }
+    return styles.regularText;
+  };
+
   const handleContact = () => {
     Alert.alert(
       'Contact Lecturer',
@@ -32,9 +54,11 @@ const LecturerCard = ({ name, position, email, office, imageUrl }) => {
     setImageError(true);
   };
 
+  const textStyle = getTextStyle();
+
   return (
     <TouchableOpacity onPress={handleContact} activeOpacity={0.7}>
-      <View style={styles.card}>
+      <View style={[getCardStyle(), styles.cardElevation]}>
         <View style={styles.imageContainer}>
           {imageUrl && !imageError ? (
             <Image 
@@ -44,15 +68,15 @@ const LecturerCard = ({ name, position, email, office, imageUrl }) => {
             />
           ) : (
             <View style={styles.placeholderImage}>
-              <Text style={styles.placeholderText}>Photo</Text>
+              <Text style={textStyle}>Photo</Text>
             </View>
           )}
         </View>
         <View style={styles.infoContainer}>
-          <Text style={styles.name}>{name}</Text>
-          <Text style={styles.position}>{position}</Text>
-          <Text style={styles.detail}>Email: {email}</Text>
-          <Text style={styles.detail}>Office: {office}</Text>
+          <Text style={[styles.name, textStyle]}>{name}</Text>
+          <Text style={[styles.position, textStyle, styles.positionMargin]}>{position}</Text>
+          <Text style={[styles.detail, textStyle]}>Email: {email || 'N/A'}</Text>
+          <Text style={[styles.detail, textStyle]}>Office: {office || 'N/A'}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -60,55 +84,110 @@ const LecturerCard = ({ name, position, email, office, imageUrl }) => {
 };
 
 const styles = StyleSheet.create({
+
   card: {
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 15,
+    backgroundColor: '#F2F9FF',
+    borderRadius: 12,
+    padding: 16,
     margin: 10,
+    flexDirection: 'row',
+  },
+  cardElevation: {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 6,
-    elevation: 3,
+    elevation: 3, 
+  },
+
+  deanCard: {
+    backgroundColor: '#F2F9FF', 
+    borderLeftWidth: 6,
+    borderLeftColor: '#ffc107', 
+    borderRadius: 12,
+    padding: 16,
+    margin: 10,
     flexDirection: 'row',
   },
+  viceDeanCard: {
+    backgroundColor: '#F2F9FF', 
+    borderLeftWidth: 6,
+    borderLeftColor: '#bbdefb', 
+    borderRadius: 12,
+    padding: 16,
+    margin: 10,
+    flexDirection: 'row',
+  },
+  secretaryCard: {
+    backgroundColor: '#F2F9FF', 
+    borderLeftWidth: 6,
+    borderLeftColor: '#c8e6c9',
+    borderRadius: 12,
+    padding: 16,
+    margin: 10,
+    flexDirection: 'row',
+  },
+  headOfDepartmentCard: {
+    backgroundColor: '#F2F9FF',
+    borderLeftWidth: 6,
+    borderLeftColor: '#d1c4e9', 
+    borderRadius: 12,
+    padding: 16,
+    margin: 10,
+    flexDirection: 'row',
+  },
+
   imageContainer: {
-    marginRight: 15,
+    marginRight: 16,
   },
   image: {
     width: 80,
     height: 80,
     borderRadius: 40,
+    borderWidth: 2, 
+    borderColor: 'rgba(255,255,255,0.5)', 
   },
   placeholderImage: {
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#e1e1e1',
+    backgroundColor: 'rgba(255,255,255,0.1)',
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.3)', 
   },
-  placeholderText: {
-    color: '#666',
-  },
+
   infoContainer: {
     flex: 1,
     justifyContent: 'center',
   },
+  
+  regularText: {
+    color: '#495057',
+  },
+  specialText: {
+    color: '#222831',
+    textShadowColor: 'rgba(0, 0, 0, 0.2)',
+    textShadowOffset: { width: 0.5, height: 0.5 }, 
+    textShadowRadius: 1,
+  },
   name: {
     fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 5,
+    fontWeight: '600', 
+    marginBottom: 4,
   },
   position: {
     fontSize: 16,
-    color: '#555',
+    fontWeight: '500',
+  },
+  positionMargin: {
     marginBottom: 8,
   },
   detail: {
     fontSize: 14,
-    color: '#666',
     marginBottom: 3,
+    lineHeight: 20, 
   },
 });
 

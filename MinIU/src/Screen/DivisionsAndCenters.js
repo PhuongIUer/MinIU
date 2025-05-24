@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, SectionList, TextInput } from 'react-native';
+import { View, Text, StyleSheet, SectionList, TextInput } from 'react-native';
 
 const DivisionsAndCenters = () => {
   const campusData = [
@@ -214,27 +214,32 @@ const DivisionsAndCenters = () => {
         />
       </View>
       
-      <ScrollView style={styles.container}>
-        {filteredData.length > 0 ? (
-          <SectionList
-            sections={filteredData}
-            keyExtractor={(item, index) => item.id + index}
-            renderItem={({ item }) => (
-              <View style={styles.item}>
-                <Text style={styles.itemId}>{item.id}</Text>
-                <Text style={styles.itemName}>{item.name}</Text>
-              </View>
-            )}
-            renderSectionHeader={({ section: { title } }) => (
-              <Text style={styles.sectionHeader}>{title}</Text>
-            )}
-          />
-        ) : (
-          <View style={styles.noResults}>
-            <Text style={styles.noResultsText}>No matching results found</Text>
-          </View>
-        )}
-      </ScrollView>
+      {filteredData.length > 0 ? (
+        <SectionList
+          style={styles.container}
+          sections={filteredData}
+          keyExtractor={(item, index) => item.id + index}
+          renderItem={({ item }) => (
+            <View style={styles.item}>
+              <Text style={styles.itemId}>{item.id}</Text>
+              <Text style={styles.itemName}>{item.name}</Text>
+            </View>
+          )}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text style={styles.sectionHeader}>{title}</Text>
+          )}
+          ListEmptyComponent={
+            <View style={styles.noResults}>
+              <Text style={styles.noResultsText}>No matching results found</Text>
+            </View>
+          }
+          stickySectionHeadersEnabled={true}
+        />
+      ) : (
+        <View style={styles.noResults}>
+          <Text style={styles.noResultsText}>No matching results found</Text>
+        </View>
+      )}
     </View>
   );
 };

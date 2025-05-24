@@ -30,7 +30,6 @@ const Support = () => {
         <Text style={styles.headerText}>Contact Information</Text>
       </View>
 
-      {/* Map Section */}
       <View style={styles.mapContainer}>
         <WebView
           originWhitelist={['*']}

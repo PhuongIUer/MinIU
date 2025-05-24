@@ -4,6 +4,7 @@ import axios from 'axios';
 import cheerio from 'cheerio-without-node-native';
 import { useIsFocused } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 const StudentInformation = ({route}) => {
   const { studentId } = route.params;
@@ -20,7 +21,7 @@ const StudentInformation = ({route}) => {
         try {
           const response = await axios.get(
             `https://iuoss.com/tcshcd/?table_filter=${studentId}&submit=T%C3%ACm+ki%E1%BA%BFm`,
-            { timeout: 10000 } // 10 seconds timeout
+            { timeout: 10000 } 
           );
           
           if (response.status !== 200) {
@@ -34,13 +35,11 @@ const StudentInformation = ({route}) => {
             throw new Error('No data table found on the page');
           }
           
-          // Extract headers
           const headers = [];
           $('thead th', table).each((i, th) => {
             headers.push($(th).text().trim());
           });
           
-          // Extract row data
           const rowData = {};
           $('tbody tr:first-child td', table).each((i, td) => {
             if (headers[i]) {
@@ -95,7 +94,8 @@ const StudentInformation = ({route}) => {
   }
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
+    <ScrollView>
       <Text style={styles.header}>Information Table</Text>
       
       {studentData ? (
@@ -125,6 +125,14 @@ const StudentInformation = ({route}) => {
         </View>
       )}
     </ScrollView>
+      <TouchableOpacity 
+        style={styles.backButton}
+        onPress={() => navigation.navigate('MinIU - Home')}
+        activeOpacity={0.7}
+      >
+        <Ionicons name="arrow-back" size={24} color="white" />
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -151,6 +159,18 @@ const styles = StyleSheet.create({
   },
   loadingContainer: {
     backgroundColor: '#f9f9f9',
+  },
+  backButton: {
+    bottom: 20, 
+    right: 20,
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    borderRadius: 30,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1,
   },
   loadingText: {
     marginTop: 20,
