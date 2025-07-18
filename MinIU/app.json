@@ -2,31 +2,27 @@
   "expo": {
     "name": "MinIU",
     "slug": "miniu",
-    "version": "1.3.1",
+    "version": "1.3.2",
     "orientation": "portrait",
     "owner": "shikuu1109",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "sdkVersion": "53.0.0",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "y",
-      "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
-      }
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.phuongvui.miniu"
+      "package": "com.shikuu1109.miniu",
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"
