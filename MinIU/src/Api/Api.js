@@ -1,11 +1,19 @@
 import axios from "axios";
-import EnvironmentConfig from '../Common/EnvironmentConfig';
+import EnvironmentConfig, { initializeEnvironment } from '../Common/EnvironmentConfig';
 
 const api = axios.create({
-  baseURL: EnvironmentConfig.NGROK_BASE_URL,
   headers: {
     'ngrok-skip-browser-warning': 'true' 
   }
+});
+
+api.interceptors.request.use(async (config) => {
+  if (!EnvironmentConfig.isInitialized) {
+    await initializeEnvironment();
+  }
+  config.baseURL = EnvironmentConfig.NGROK_BASE_URL;
+  
+  return config;
 });
 
 api.interceptors.response.use(
