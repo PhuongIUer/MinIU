@@ -76,17 +76,17 @@ const CardScreen = ({ route }) => {
     ],
   }));
 
-const handleRotatePress = () => {
-  if (isRotating.value) return; 
+  const handleRotatePress = () => {
+    if (isRotating.value) return; 
 
-  isRotating.value = true;
-  
-  const newRotation = rotation.value + (rotation.value % 360 === 0 ? -90 : 90);
+    isRotating.value = true;
+    
+    const newRotation = rotation.value + (rotation.value % 360 === 0 ? -90 : 90);
 
-  rotation.value = withTiming(newRotation, { duration: 300 }, () => {
-    isRotating.value = false; 
-  });
-};
+    rotation.value = withTiming(newRotation, { duration: 300 }, () => {
+      isRotating.value = false; 
+    });
+  };
 
   const composedGesture = Gesture.Simultaneous(pinchGesture, panGesture);
 

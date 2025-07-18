@@ -1,9 +1,10 @@
 {
   "expo": {
     "name": "MinIU",
-    "slug": "MinIU",
+    "slug": "miniu",
     "version": "1.0.0",
     "orientation": "portrait",
+    "owner": "shikuu1109",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
@@ -14,7 +15,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "y",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -28,7 +33,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "6953ca28-fdda-48db-9be1-dae446cd1c66"
+        "projectId": "af830220-8534-4a6e-9a69-a56caed0ef2a"
       }
     }
   }

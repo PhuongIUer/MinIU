@@ -14,7 +14,7 @@ import thezerocoffee_logo from '../../../assets/Canteen/Menu/thezerocoffee.jpg';
 
 const Menu = ({ route }) => {
   const navigation = useNavigation();
-  const screenback = route?.params?.screenback || 'MinIU - Home'; 
+  const screenback = route?.params?.screenback || 'Canteen';
   const name = 'Menu';
   const stores = [
     {

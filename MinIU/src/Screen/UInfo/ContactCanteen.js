@@ -110,7 +110,7 @@ const ContactCanteen = () => {
     </ScrollView>
       <TouchableOpacity 
         style={styles.backButton}
-        onPress={() => navigation.navigate('Useful Information')}
+        onPress={() => navigation.navigate('Canteen')}
         activeOpacity={0.7}
       >
         <Ionicons name="arrow-back" size={24} color="white" />

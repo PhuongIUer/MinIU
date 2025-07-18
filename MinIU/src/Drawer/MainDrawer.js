@@ -53,6 +53,7 @@ import DrivingLicense from '../Screen/UInfo/DrivingLicense';
 import FresherInformation from '../Screen/UInfo/FresherInformation';
 import GraduateInformation from '../Screen/UInfo/GraduateInformation';
 import Photocopy from '../Screen/UInfo/Photocopy';
+import CheckAdmissionResults from '../Screen/UInfo/CheckAdmissionResults';
 
 import StudentInformation from '../Screen/StudentInformation';
 import FeedbackRatingApp from '../Screen/FeedbackRatingApp';
@@ -60,8 +61,6 @@ import FeedbackLecturers from '../Screen/FeedbackLecturers';
 import FeedbackUniversity from '../Screen/FeedbackUniversity';
 import AboutMe from '../Screen/AboutMe';
 import Home from '../Screen/Home';
-//Drawer import
-import ThongNhat from '../../assets/50nam.png'
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -222,6 +221,11 @@ const MainDrawer = () => {
           <Drawer.Screen 
             name="Driving License" 
             component={DrivingLicense} 
+            options={{ drawerItemStyle: { display: 'none' }}} 
+          />
+          <Drawer.Screen 
+            name="Check Admission Results" 
+            component={CheckAdmissionResults} 
             options={{ drawerItemStyle: { display: 'none' }}} 
           />
           <Drawer.Screen 

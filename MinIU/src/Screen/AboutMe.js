@@ -15,7 +15,7 @@ const AboutMe = () => {
           style={styles.appIcon}
         />
         <Text style={styles.appName}>MinIU</Text>
-        <Text style={styles.version}>Version 1.0.0</Text>
+        <Text style={styles.version}>Version 1.1.0</Text>
       </View>
 
       <View style={styles.section}>

@@ -133,7 +133,7 @@ const filteredLecturers = lecturers
               position={lecturer.position}
               email={lecturer.email}
               office={lecturer.office}
-              imageUrl={lecturer.imageUrl}
+              avatar={lecturer.avatar}
             />
           ))
         ) : (
