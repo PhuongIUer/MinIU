@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Alert, Linking } from 'react-native';
 
-const LecturerCard = ({ name, position, email, office, imageUrl }) => {
+const LecturerCard = ({ name, position, email, office, avatar }) => {
   const [imageError, setImageError] = React.useState(false);
 
   const getCardStyle = () => {
@@ -60,9 +60,9 @@ const LecturerCard = ({ name, position, email, office, imageUrl }) => {
     <TouchableOpacity onPress={handleContact} activeOpacity={0.7}>
       <View style={[getCardStyle(), styles.cardElevation]}>
         <View style={styles.imageContainer}>
-          {imageUrl && !imageError ? (
+          {avatar && !imageError ? (
             <Image 
-              source={{ uri: imageUrl }} 
+              source={{ uri: avatar }} 
               style={styles.image} 
               onError={handleImageError}
             />

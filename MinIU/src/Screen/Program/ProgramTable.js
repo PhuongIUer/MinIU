@@ -1,32 +1,41 @@
-import React from 'react';
 import { View, Text, StyleSheet, ScrollView, SectionList, TouchableOpacity } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
 const ProgramTable = ({ route }) => {
   const navigation = useNavigation();
-  const { program, programName, majorName, majors, logo } = route.params;
+  const { program, programName, majorName, logo } = route.params;
 
   const handleBackPress = () => {
     navigation.navigate('Major Table', { 
-        majors: majors, 
-        majorName: majorName, 
-        logo: logo
-      });
-  };
-
-  const formatData = () => {
-    return Object.entries(program).map(([semester, courses]) => {
-      const semesterCredits = courses.reduce((total, course) => total + course.credit, 0);
-      
-      return {
-        title: semester,
-        data: courses,
-        credits: semesterCredits,
-      };
+      majorName: majorName, 
+      logo: logo
     });
   };
+
+const formatData = () => {
+  // First check if program and program.semesters exist
+  if (!program || !program.semesters) {
+    console.error("Program or semesters data is missing!");
+    return []; // Return empty array to prevent crashes
+  }
+
+  return program.semesters.map((semester) => {
+    let semesterCredits = 0;
+    
+    if (semester.subjects) { // Check if subjects exist
+      semester.subjects.forEach((subject) => {
+        semesterCredits += subject.credits || 0; // Fallback to 0 if credits missing
+      });
+    }
+    
+    return {
+      title: semester.name,
+      data: semester.subjects || [], // Fallback to empty array if undefined
+      credits: semesterCredits,
+    };
+  });
+};
 
   const renderSectionHeader = ({ section: { title, credits } }) => (
     <View style={styles.semesterHeader}>
@@ -37,16 +46,18 @@ const ProgramTable = ({ route }) => {
 
   const renderItem = ({ item }) => (
     <View style={styles.courseItem}>
-      <Text style={styles.courseName}>{item.subject}</Text>
-      <Text style={styles.creditText}>{item.credit} credits</Text>
+      <Text style={styles.courseName}>{item.name}</Text>
+      <Text style={styles.creditText}>{item.credits} credits</Text>
     </View>
   );
 
   const calculateTotalCredits = () => {
     let total = 0;
-    Object.values(program).forEach(semester => {
-      semester.forEach(course => {
-        total += course.credit;
+    program.semesters.forEach(semester => {
+      semester.subjects.forEach(subject => {
+        if (subject.name !== 'Physical Training') {
+          total += subject.credits;
+        }
       });
     });
     return total;
@@ -72,7 +83,7 @@ const ProgramTable = ({ route }) => {
 
       <SectionList
         sections={formatData()}
-        keyExtractor={(item, index) => item.subject + index}
+        keyExtractor={(item, index) => item.name + index}
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
         stickySectionHeadersEnabled={true}

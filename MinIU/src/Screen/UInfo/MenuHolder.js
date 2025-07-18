@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { View, StyleSheet, ScrollView, Image, Text, Dimensions, TouchableOpacity, Modal, Alert } from 'react-native';
+import { View, StyleSheet, ScrollView, Image, Text, Linking, Dimensions, TouchableOpacity, Modal, Alert } from 'react-native';
 import { GestureHandlerRootView, LongPressGestureHandler, State } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
@@ -34,8 +34,8 @@ const MenuHolder = ({ route }) => {
   };
 
   const downloadImage = () => {
-    Alert.alert('Info', 'Download functionality is still in development.');
     closeActionModal();
+    Linking.openURL('https://drive.google.com/drive/folders/1ekKt9Y753F9oaAD_4zUOj0AAE2uw_ZGW?usp=drive_link').catch(err => console.error("Couldn't load page", err));
   };
 
   const onLongPress = (event, image) => {

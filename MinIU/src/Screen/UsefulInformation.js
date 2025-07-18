@@ -2,14 +2,15 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-// Icons for each UsefulInformation
+
+
 const UsefulInformationIcons = {
   'Fresher Information': 'face', 
   'After Graduate Information': 'school', 
   'Photocopy': 'content-copy', 
   'Canteen': 'restaurant', 
-  'Driving License': 'directions-car' 
+  'Driving License': 'directions-car',
+  'Check Admission Results': 'find-in-page',
 };
 
 const UsefulInformation = () => {
@@ -21,6 +22,7 @@ const UsefulInformation = () => {
     { name: 'Photocopy', screen: 'Photocopy' },
     { name: 'Canteen', screen: 'Canteen' },
     { name: 'Driving License', screen: 'Driving License' },
+    { name: 'Check Admission Results', screen: 'Check Admission Results' },
   ];
 
   const renderItem = ({ item }) => (

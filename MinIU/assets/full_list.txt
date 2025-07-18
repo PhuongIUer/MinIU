@@ -1,0 +1,170 @@
+Danh sách đầy đủ các file và thư mục (đệ quy):
+Thư mục gốc: D:\DASV\MinIU\MinIU\assets
+
+[Thư mục] assets/
+    - adaptive-icon.png
+    - error.png
+    - favicon.png
+    - footer.png
+    - full_list.txt
+    - icon.png
+    - list_all_files.py
+    - logo.png
+    - Mobile.png
+    - nodata.png
+    - splash-icon.png
+    - splash.png
+    [Thư mục] Canteen/
+        - canteen (1).jpg
+        - canteen (2).jpg
+        - canteen (3).jpg
+        - canteen (4).jpg
+        - canteen (5).jpg
+        - canteen (6).jpg
+        - canteen.jpg
+        [Thư mục] Menu/
+            - banhviet.jpg
+            - bb-(1).jpg
+            - bb-(2).jpg
+            - bb.png
+            - bigu-(1).jpg
+            - bigu-(2).jpg
+            - bigu-(3).jpg
+            - bigu.jpg
+            - comviet-(1).jpg
+            - comviet-(2).jpg
+            - comviet-(3).jpg
+            - comviet.jpg
+            - hd-(1).jpg
+            - hd-(2).jpg
+            - hd-(3).jpg
+            - hd-(4).jpg
+            - hd-(5).jpg
+            - hd.jpg
+            - list.txt
+            - storycoffee-(1).jpg
+            - storycoffee-(2).jpg
+            - storycoffee.png
+            - sushumashe-(1).jpg
+            - sushumashe.jpg
+            - thezerocoffee-(1).jpg
+            - thezerocoffee.jpg
+    [Thư mục] Club/
+        - bottom.png
+        - top.png
+        [Thư mục] AcademicAndSkillsClub/
+            - Biodemic.png
+            - IAC.png
+            - IEMC.png
+            - IPC.png
+            - ISSC.png
+            - IT.png
+            - IUA.png
+            - IUP.png
+        [Thư mục] ArtsAndCultureClub/
+            - EC.png
+            - IA.png
+            - IAC.png
+            - IFC.png
+            - IGC.png
+            - IL.png
+            - JC.png
+            - KC.png
+        [Thư mục] LearningSupportAndPersonalDevClub/
+            - EIV.png
+            - ESC.png
+            - ETV.png
+            - GDG.png
+            - IFC.png
+            - IMC.png
+            - Tedx.png
+            - uHub.png
+        [Thư mục] SportsAndEsportsClub/
+            - IB.png
+            - ICC.png
+            - IFC.png
+            - IHEC.png
+            - IPP.png
+        [Thư mục] VolunteerAndSocialWorkClub/
+            - COSS.png
+            - H2BH.png
+            - IBC.png
+            - II.png
+            - ISWT.png
+            - TOSA.png
+    [Thư mục] Form/
+        [Thư mục] BAOHIEM/
+            - TAINAN.pdf
+            - TRATIENBAOHIEM.pdf
+        [Thư mục] BHYT/
+            - BHYTGIADINH.pdf
+            - CAPTHEBHYT.pdf
+            - KKTTBHYT.pdf
+            - TTTTBHYT.pdf
+        [Thư mục] CHOO/
+            - CUTRU.pdf
+            - NGOAITRU.pdf
+            - RAKTX.pdf
+            - VOKTX.pdf
+        [Thư mục] MIENGIAM/
+            - GIAMTHUEPH.pdf
+            - MGHP.pdf
+        [Thư mục] XACNHAN/
+            - UDGD.pdf
+            - XNAV.pdf
+            - XNCM.pdf
+            - XNQS.pdf
+            - XNVV.pdf
+            - XNVV2.pdf
+    [Thư mục] Logo/
+        - BME.jpg
+        - BS.jpg
+        - BT.png
+        - CE.png
+        - CH.png
+        - EE.png
+        - IEM.jpg
+        - IT.png
+        - MA.png
+        - PH.png
+    [Thư mục] Map/
+        - Enviroment.png
+        - Library.png
+        [Thư mục] A/
+            [Thư mục] Floor-1/
+                - Floor-1.png
+            [Thư mục] Floor-2/
+                - Floor-2.png
+            [Thư mục] Floor-3/
+                - Floor-3.png
+            [Thư mục] Floor-4/
+                - Floor-4.png
+            [Thư mục] Floor-5/
+                - Floor-5.png
+            [Thư mục] Floor-6/
+                - Floor-6.png
+            [Thư mục] Floor-7/
+                - Floor-7.png
+        [Thư mục] C/
+            [Thư mục] Floor-4/
+                - Floor-4.png
+            [Thư mục] Floor-5/
+                - Floor-5.png
+        [Thư mục] L/
+            [Thư mục] Floor-1/
+                - Floor-1.png
+            [Thư mục] Floor-2/
+                - Floor-2.png
+    [Thư mục] Unimart/
+        - unimart-(1).jpg
+        - unimart-(10).jpg
+        - unimart-(11).jpg
+        - unimart-(12).jpg
+        - unimart-(2).jpg
+        - unimart-(3).jpg
+        - unimart-(4).jpg
+        - unimart-(5).jpg
+        - unimart-(6).jpg
+        - unimart-(7).jpg
+        - unimart-(8).jpg
+        - unimart-(9).jpg

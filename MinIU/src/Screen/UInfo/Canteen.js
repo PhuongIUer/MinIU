@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Canteen = ({ route }) => {
   const navigation = useNavigation();
-  const screenback = route?.params?.screenback || 'MinIU - Home'; 
+  const screenback = route?.params?.screenback || 'Useful Information'; 
   const name = 'Canteen';
   const handleBackPress = () => {
     navigation.navigate(screenback);
