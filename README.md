@@ -37,19 +37,6 @@ Before you begin, ensure you have the following installed:
    - Run on a physical device using the Expo Go app
    - Generate a QR code to scan with your device
 
-## Project Structure
-
-```
-MinIU/
-├── assets/            # Static assets (images, fonts, etc.)
-├── components/        # Reusable UI components
-├── screens/           # Application screens
-├── navigation/        # Navigation setup
-├── utils/            # Utility functions
-├── App.js             # Main application entry point
-└── package.json       # Project dependencies
-```
-
 ## Available Scripts
 
 - `npx expo start`: Start the development server
